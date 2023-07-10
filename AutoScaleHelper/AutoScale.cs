@@ -8,6 +8,8 @@ namespace AutoScaleHelper
     {
         private Dictionary<string, CtrlInfo> _ctrlInfos = new Dictionary<string, CtrlInfo>();
         private Dictionary<string, Size> ContainerDSizes = new Dictionary<string, Size>();
+        private Dictionary<Control, List<Control>> groups =
+            new Dictionary<Control, List<Control>>();
         private Control _container;
 
         public bool AutoFont { get; set; }
@@ -231,6 +233,18 @@ namespace AutoScaleHelper
                     }
                 }
             }
+
+            //针对高度只受字体影响的控件(textbox，combobox等)特殊处理
+            if (AutoFont)
+            {
+                foreach (var g in groups)
+                {
+                    foreach (var item in g.Value)
+                    {
+                        item.Font = g.Key.Font.Clone() as Font;
+                    }
+                }
+            }
         }
 
 
@@ -266,6 +280,46 @@ namespace AutoScaleHelper
             if (_ctrlInfos.ContainsKey(ctrl.Name))
             {
                 _ctrlInfos.Remove(ctrl.Name);
+            }
+        }
+        /// <summary>
+        /// 指定一个控件的字体依赖于另一个目标控件。
+        /// 只有在每次容器大小发生变化时才发生更新字体操作。
+        /// </summary>
+        /// <param name="ctrl">需要依赖的控件</param>
+        /// <param name="target">目标控件</param>
+        public void FontDependOn(Control ctrl,Control target)
+        {
+            if (!groups.ContainsKey(target))
+            {
+                List<Control> g = new List<Control>();
+                g.Add(ctrl);
+                groups.Add(target, g);
+            }
+            else
+            {
+                var ctrls = groups[target];
+                ctrls.Add(ctrl);
+            }
+        }
+
+        /// <summary>
+        /// 指定多个控件的字体依赖于另一个目标控件。
+        /// </summary>
+        /// <param name="target">目标控件</param>
+        /// <param name="ctrls">需要依赖的一组控件</param>
+        public void FontDependOn(Control target, params Control[] ctrls)
+        {
+            if (!groups.ContainsKey(target))
+            {
+                List<Control> g = new List<Control>();
+                g.AddRange(ctrls);
+                groups.Add(target, g);
+            }
+            else
+            {
+                var _ctrls = groups[target];
+                _ctrls.AddRange(ctrls);
             }
         }
     }
