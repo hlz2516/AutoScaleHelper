@@ -33,15 +33,7 @@ namespace AutoScaleHelper
     internal class FontInfo
     {
         public string Name { get; private set; }
-        /// <summary>
-        /// 字体从小到大的行高列表。按照可取的Font单位排序（八号-初号），即：
-        /// 5.25  6.75  7.5  9  10.5  12  14.25  15  15.75  18  21.75  24  26.25  36  42
-        /// </summary>
         private SortedDictionary<int, float> chnFontHeights;
-        /// <summary>
-        /// 字体从小到大的行高列表。按照可取的Font单位排序（8-72），即：
-        /// 8,9,10,11,12,14,16,18,20,22,24,26,28,36,48,72
-        /// </summary>
         private SortedDictionary<int, float> fontHeights;
         private static float[] chnSizes = new float[]
         {
@@ -57,7 +49,6 @@ namespace AutoScaleHelper
             Name = name;
 
             chnFontHeights = new SortedDictionary<int, float>();
-
             foreach (var size in chnSizes)
             {
                 int height = new Font(name, size).Height;
@@ -65,7 +56,6 @@ namespace AutoScaleHelper
             }
 
             fontHeights = new SortedDictionary<int, float>();
-
             foreach (var size in cmnSizes)
             {
                 int height = new Font(name, size).Height;
@@ -78,7 +68,6 @@ namespace AutoScaleHelper
             float res = 5f;
             if (fontSizeType == FontSizeType.Chinese)
             {
-
                 foreach (var h in chnFontHeights)
                 {
                     if (h.Key > height)

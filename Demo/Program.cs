@@ -4,6 +4,7 @@ using Demo._3_对单个控件设置不缩放;
 using Demo._4_动态添加控件;
 using Demo._5_自定义控件的缩放;
 using Demo._6_字体自适应;
+using Demo._7_常用控件测试;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace Demo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FontScaleForm1());
+            Application.Run(new Form_Textbox());
         }
     }
 }

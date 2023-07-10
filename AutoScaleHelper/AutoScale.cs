@@ -231,6 +231,33 @@ namespace AutoScaleHelper
                     }
                 }
             }
+
+            //对于textbox，combobox等控件对于自适应字体的特殊处理
+            if (!AutoFont)
+            {
+                return;
+            }
+
+            queue.Enqueue(_container);
+            while (queue.Count > 0)
+            {
+                Control curCtrl = queue.Dequeue();
+
+                foreach (Control ctrl in curCtrl.Controls)
+                {
+                    if (ctrl is TextBox || ctrl is ComboBox)
+                    {
+                        if (ctrl.Tag != null)
+                        {
+                            string depCtrl = ctrl.Tag as string;
+                            if (_ctrlInfos.ContainsKey(depCtrl))
+                            {
+
+                            }
+                        }
+                    }
+                }
+            }
         }
 
 
