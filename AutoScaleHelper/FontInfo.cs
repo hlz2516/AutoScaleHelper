@@ -33,6 +33,7 @@ namespace AutoScaleHelper
     internal class FontInfo
     {
         public string Name { get; private set; }
+
         private SortedDictionary<int, float> chnFontHeights;
         private SortedDictionary<int, float> fontHeights;
         private static float[] chnSizes = new float[]
