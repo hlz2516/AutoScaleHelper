@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -10,6 +11,10 @@ namespace AutoScaleHelper
         private Dictionary<string, Size> ContainerDSizes = new Dictionary<string, Size>();
         private Dictionary<Control, List<Control>> groups =
             new Dictionary<Control, List<Control>>();
+        /// <summary>
+        /// 用于缩放时开发者可以针对某些特殊情况对个别控件进行微调
+        /// </summary>
+        private Action OnScale;
         private Control _container;
 
         public bool AutoFont { get; set; }
@@ -245,6 +250,8 @@ namespace AutoScaleHelper
                     }
                 }
             }
+
+            OnScale?.Invoke();
         }
 
 
@@ -321,6 +328,11 @@ namespace AutoScaleHelper
                 var _ctrls = groups[target];
                 _ctrls.AddRange(ctrls);
             }
+        }
+
+        public void OnControlScaled(Action action)
+        {
+            OnScale = action;
         }
     }
 }

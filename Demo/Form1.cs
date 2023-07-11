@@ -21,9 +21,6 @@ namespace Demo
             this.SetAnchorNone();
             autoScale.AutoFont = true;
             autoScale.SetContainer(this);
-            //autoScale.FontDependOn(comboBox1, label1);
-            //autoScale.FontDependOn(textBox1, label1);
-            autoScale.FontDependOn(label1, comboBox1, textBox1);
         }
 
         private void Form1_SizeChanged(object sender, EventArgs e)

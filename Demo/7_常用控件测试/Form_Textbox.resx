@@ -117,4 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label2.Text" xml:space="preserve">
+    <value>注意点：
+1. textbox是一种高度只受字体大小影响的控件，类似的控件还有combobox等。因此，如果你的缩放区域设置了不自动缩放字体，那么textbox将只改变位置和宽度，这样的效果是非常差的。如果你想要比较完美地处理textbox缩放，那么首先要把AutoFont设置为ttrue。
+2. textbox的字体缩放必须依赖于其他能正常缩放字体的其他控件（比如label）。在大多数需求中，textbox左侧或者上侧会有一个label用以说明该文本框的意义，我们可以把该文本框作为依赖控件。具体如何调用方法产生依赖请看后台代码。
+3. 经过本人尝试，仅仅同步字体依然达不到理想的界面效果，因此，我推荐的做法是，把label和textbox放入到一个tablelayoutpanel中，在网格布局中，这两个控件能始终保持在垂直中心位置，能具有比较好的界面效果。</value>
+  </data>
 </root>

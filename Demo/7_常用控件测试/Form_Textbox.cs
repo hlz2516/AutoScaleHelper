@@ -19,6 +19,11 @@ namespace Demo._7_常用控件测试
             InitializeComponent();
             this.SetAnchorNone();
             autoScale.AutoFont = true;
+            //textbox1的字体依赖于label1
+            autoScale.FontDependOn(textBox1, label1);
+            // textBox3, textBox4的字体依赖于label3
+            autoScale.FontDependOn(label3, textBox3, textBox4);
+
             autoScale.SetContainer(this);
         }
 
@@ -28,5 +33,10 @@ namespace Demo._7_常用控件测试
             autoScale.UpdateControlsLayout();
             this.ResumeLayout();
         }
+
+        /*
+         * 网格布局里的label设置了anchor=right+top+bottom
+         * textbox设置了anchor = left
+         */
     }
 }
