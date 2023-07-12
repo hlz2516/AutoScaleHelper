@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -58,12 +59,18 @@ namespace AutoScaleHelper
                     {
                         continue;
                     }
-                    if (ctrl.Parent is DataGridView || ctrl.Parent is SplitContainer)
+                    if (ctrl.Parent is DataGridView || ctrl.Parent is UpDownBase)
                     {
                         continue;
                     }
 
                     queue.Enqueue(ctrl);
+                }
+
+                //如果当前控件没有名字就取个名字
+                if (string.IsNullOrEmpty(curCtrl.Name))
+                {
+                    curCtrl.Name = curCtrl.GetType().Name + Guid.NewGuid().ToString().Substring(0, 8);
                 }
 
                 if (curCtrl == _container)
@@ -72,7 +79,8 @@ namespace AutoScaleHelper
                     continue;
                 }
 
-                if (curCtrl is GroupBox || curCtrl is Panel)
+                if (curCtrl is GroupBox || curCtrl is TabControl || 
+                    curCtrl is Panel || curCtrl is ContainerControl)
                 {
                     ContainerDSizes.Add(curCtrl.Name, curCtrl.ClientSize);
                 }
@@ -119,7 +127,7 @@ namespace AutoScaleHelper
                     {
                         continue;
                     }
-                    if (ctrl.Parent is DataGridView || ctrl.Parent is SplitContainer)
+                    if (ctrl.Parent is DataGridView)
                     {
                         continue;
                     }
@@ -238,7 +246,7 @@ namespace AutoScaleHelper
                         }
 
                         curCtrl.Size = new Size(scaledWidth, scaledHeight);
-                        curCtrl.Location = new Point(curCtrl.Location.X,ctrlInfo.Rect.Y);
+                        curCtrl.Location = new Point(curCtrl.Location.X, ctrlInfo.Rect.Y);
                     }
 
                     if (AutoFont)
@@ -308,7 +316,7 @@ namespace AutoScaleHelper
         /// </summary>
         /// <param name="ctrl">需要依赖的控件</param>
         /// <param name="target">目标控件</param>
-        public void FontDependOn(Control ctrl,Control target)
+        public void FontDependOn(Control ctrl, Control target)
         {
             if (!groups.ContainsKey(target))
             {

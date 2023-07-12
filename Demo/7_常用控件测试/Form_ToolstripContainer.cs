@@ -9,29 +9,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Demo
+namespace Demo._7_常用控件测试
 {
-    public partial class Form1 : Form
+    public partial class Form_ToolstripContainer : Form
     {
         AutoScale autoScale = new AutoScale();
 
-        public Form1()
+        public Form_ToolstripContainer()
         {
             InitializeComponent();
-            //this.SetAnchorNone();
-            autoScale.AutoFont = true;
             autoScale.SetContainer(this);
         }
 
-        private void Form1_SizeChanged(object sender, EventArgs e)
+        private void Form_ToolstripContainer_SizeChanged(object sender, EventArgs e)
         {
             autoScale.UpdateControlsLayout();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            float biggerSize = domainUpDown1.Font.Size + 1.5f;
-            domainUpDown1.Font = new Font("宋体", biggerSize);
         }
     }
 }

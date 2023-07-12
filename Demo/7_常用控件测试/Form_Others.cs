@@ -9,29 +9,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Demo
+namespace Demo._7_常用控件测试
 {
-    public partial class Form1 : Form
+    public partial class Form_Others : Form
     {
         AutoScale autoScale = new AutoScale();
 
-        public Form1()
+        public Form_Others()
         {
             InitializeComponent();
-            //this.SetAnchorNone();
             autoScale.AutoFont = true;
-            autoScale.SetContainer(this);
+            autoScale.FontDependOn(label1, numericUpDown1, domainUpDown1,  dateTimePicker1);
+            autoScale.SetContainer(panel1);
         }
 
-        private void Form1_SizeChanged(object sender, EventArgs e)
+        private void Form_Others_SizeChanged(object sender, EventArgs e)
         {
+            this.SuspendLayout();
             autoScale.UpdateControlsLayout();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            float biggerSize = domainUpDown1.Font.Size + 1.5f;
-            domainUpDown1.Font = new Font("宋体", biggerSize);
+            this.ResumeLayout();
         }
     }
 }

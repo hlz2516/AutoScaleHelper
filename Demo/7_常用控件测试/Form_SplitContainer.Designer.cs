@@ -48,7 +48,7 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -66,8 +66,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.button7);
             this.splitContainer1.Panel2.Controls.Add(this.button6);
             this.splitContainer1.Panel2.Controls.Add(this.button5);
-            this.splitContainer1.Size = new System.Drawing.Size(867, 558);
-            this.splitContainer1.SplitterDistance = 279;
+            this.splitContainer1.Size = new System.Drawing.Size(752, 461);
+            this.splitContainer1.SplitterDistance = 230;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.Tag = "";
             // 
@@ -75,7 +75,7 @@
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button4.Location = new System.Drawing.Point(3, 231);
+            this.button4.Location = new System.Drawing.Point(3, 180);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(111, 45);
             this.button4.TabIndex = 2;
@@ -88,9 +88,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Location = new System.Drawing.Point(643, 3);
+            this.groupBox1.Location = new System.Drawing.Point(526, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(221, 273);
+            this.groupBox1.Size = new System.Drawing.Size(221, 222);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -99,7 +99,7 @@
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button3.Location = new System.Drawing.Point(64, 153);
+            this.button3.Location = new System.Drawing.Point(64, 128);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(105, 50);
             this.button3.TabIndex = 1;
@@ -110,7 +110,7 @@
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(64, 54);
+            this.button2.Location = new System.Drawing.Point(64, 29);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(105, 50);
             this.button2.TabIndex = 0;
@@ -130,7 +130,7 @@
             // button9
             // 
             this.button9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button9.Location = new System.Drawing.Point(391, 116);
+            this.button9.Location = new System.Drawing.Point(333, 91);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(123, 52);
             this.button9.TabIndex = 4;
@@ -140,7 +140,7 @@
             // button8
             // 
             this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.Location = new System.Drawing.Point(789, 249);
+            this.button8.Location = new System.Drawing.Point(672, 199);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 23);
             this.button8.TabIndex = 3;
@@ -150,7 +150,7 @@
             // button7
             // 
             this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button7.Location = new System.Drawing.Point(0, 249);
+            this.button7.Location = new System.Drawing.Point(0, 199);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 2;
@@ -160,7 +160,7 @@
             // button6
             // 
             this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.Location = new System.Drawing.Point(789, 3);
+            this.button6.Location = new System.Drawing.Point(672, 3);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 1;

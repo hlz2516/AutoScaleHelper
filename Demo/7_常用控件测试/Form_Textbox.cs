@@ -22,6 +22,7 @@ namespace Demo._7_常用控件测试
             autoScale.FontDependOn(textBox1, label1);
             // textBox3, textBox4的字体依赖于label3
             autoScale.FontDependOn(label3, textBox3, textBox4);
+            autoScale.FontDependOn(maskedTextBox1, label4);
 
             autoScale.SetContainer(this);
         }

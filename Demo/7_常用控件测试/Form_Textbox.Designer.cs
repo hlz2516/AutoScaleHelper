@@ -38,6 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,7 +129,7 @@
             // richTextBox1
             // 
             this.richTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.richTextBox1.Location = new System.Drawing.Point(431, 176);
+            this.richTextBox1.Location = new System.Drawing.Point(344, 176);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(228, 132);
             this.richTextBox1.TabIndex = 9;
@@ -138,18 +140,41 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(434, 148);
+            this.label4.Location = new System.Drawing.Point(347, 148);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 23);
             this.label4.TabIndex = 10;
             this.label4.Text = "RichTextBox";
             this.label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.maskedTextBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(625, 185);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(127, 26);
+            this.maskedTextBox1.TabIndex = 11;
+            this.maskedTextBox1.Text = "测试";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(625, 158);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(127, 23);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "maskedtextbox";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
             // Form_Textbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label2);
@@ -178,5 +203,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Label label5;
     }
 }

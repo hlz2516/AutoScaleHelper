@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -148,6 +149,12 @@
     <Compile Include="7_常用控件测试\Form_ListView.Designer.cs">
       <DependentUpon>Form_ListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="7_常用控件测试\Form_Others.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_Others.Designer.cs">
+      <DependentUpon>Form_Others.cs</DependentUpon>
+    </Compile>
     <Compile Include="7_常用控件测试\Form_Panel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,11 +179,29 @@
     <Compile Include="7_常用控件测试\Form_SplitContainer.Designer.cs">
       <DependentUpon>Form_SplitContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="7_常用控件测试\Form_TagPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_TagPage.Designer.cs">
+      <DependentUpon>Form_TagPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="7_常用控件测试\Form_Textbox.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="7_常用控件测试\Form_Textbox.Designer.cs">
       <DependentUpon>Form_Textbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_ToolStrip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_ToolStrip.Designer.cs">
+      <DependentUpon>Form_ToolStrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_ToolstripContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_ToolstripContainer.Designer.cs">
+      <DependentUpon>Form_ToolstripContainer.cs</DependentUpon>
     </Compile>
     <Compile Include="7_常用控件测试\Form_TreeView.cs">
       <SubType>Form</SubType>
@@ -243,6 +268,9 @@
     <EmbeddedResource Include="7_常用控件测试\Form_ListView.resx">
       <DependentUpon>Form_ListView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="7_常用控件测试\Form_Others.resx">
+      <DependentUpon>Form_Others.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="7_常用控件测试\Form_Panel.resx">
       <DependentUpon>Form_Panel.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,8 +283,17 @@
     <EmbeddedResource Include="7_常用控件测试\Form_SplitContainer.resx">
       <DependentUpon>Form_SplitContainer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="7_常用控件测试\Form_TagPage.resx">
+      <DependentUpon>Form_TagPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="7_常用控件测试\Form_Textbox.resx">
       <DependentUpon>Form_Textbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="7_常用控件测试\Form_ToolStrip.resx">
+      <DependentUpon>Form_ToolStrip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="7_常用控件测试\Form_ToolstripContainer.resx">
+      <DependentUpon>Form_ToolstripContainer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="7_常用控件测试\Form_TreeView.resx">
       <DependentUpon>Form_TreeView.cs</DependentUpon>

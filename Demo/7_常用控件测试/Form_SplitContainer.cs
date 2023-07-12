@@ -13,17 +13,11 @@ namespace Demo._7_常用控件测试
 {
     public partial class Form_SplitContainer : Form
     {
-        AutoScale autoScaleForPnl1 = new AutoScale();
-        AutoScale autoScaleForPnl2 = new AutoScale();
-        AutoScale autoScale = new AutoScale();  //这个缩放辅助在只存在splitcontainer的窗体中加了也没用，这里只是为了演示加了不会报错
+        AutoScale autoScale = new AutoScale();
 
         public Form_SplitContainer()
         {
             InitializeComponent();
-            autoScaleForPnl1.AutoFont = true;
-            autoScaleForPnl1.SetContainer(splitContainer1.Panel1);
-            autoScaleForPnl2.AutoFont = true;
-            autoScaleForPnl2.SetContainer(splitContainer1.Panel2);
             autoScale.AutoFont = true;
             autoScale.SetContainer(this);
         }
@@ -31,8 +25,6 @@ namespace Demo._7_常用控件测试
         private void Form_SplitContainer_SizeChanged(object sender, EventArgs e)
         {
             this.splitContainer1.SuspendLayout();
-            autoScaleForPnl1.UpdateControlsLayout();
-            autoScaleForPnl2.UpdateControlsLayout();
             autoScale.UpdateControlsLayout();
             this.splitContainer1.ResumeLayout();
         }
