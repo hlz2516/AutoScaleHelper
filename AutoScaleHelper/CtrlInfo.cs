@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace AutoScaleHelper
 {
-    internal class CtrlInfo
+    public class CtrlInfo
     {
         /// <summary>
         /// 各边的定位。如left表示该控件左侧到父容器的左边界的距离保持固定

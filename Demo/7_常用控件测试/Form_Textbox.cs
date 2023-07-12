@@ -17,7 +17,6 @@ namespace Demo._7_常用控件测试
         public Form_Textbox()
         {
             InitializeComponent();
-            this.SetAnchorNone();
             autoScale.AutoFont = true;
             //textbox1的字体依赖于label1
             autoScale.FontDependOn(textBox1, label1);
@@ -35,8 +34,9 @@ namespace Demo._7_常用控件测试
         }
 
         /*
-         * 网格布局里的label设置了anchor=right+top+bottom
-         * textbox设置了anchor = left
+         * 网格布局里的label设置了anchor=right+top，autosize=false
+         * textbox设置了anchor = left+top，注意，因为这里的left+top是有意义的，所以不能调用SetAnchorNone方法
+         * textbox的TextAlign设置为Top+Right，并且设置margin的top为6
          */
     }
 }

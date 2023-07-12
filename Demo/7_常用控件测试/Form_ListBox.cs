@@ -11,17 +11,19 @@ using System.Windows.Forms;
 
 namespace Demo._7_常用控件测试
 {
-    public partial class Form_Label : Form
+    public partial class Form_ListBox : Form
     {
-        AutoScale autoScale = new AutoScale(); 
-        public Form_Label()
+        AutoScale autoScale = new AutoScale();
+
+        public Form_ListBox()
         {
             InitializeComponent();
+            this.SetAnchorNone();
             autoScale.AutoFont = true;
             autoScale.SetContainer(this);
         }
 
-        private void Form_Label_SizeChanged(object sender, EventArgs e)
+        private void Form_ListBox_SizeChanged(object sender, EventArgs e)
         {
             autoScale.UpdateControlsLayout();
         }

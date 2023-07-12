@@ -106,11 +106,53 @@
     <Compile Include="7_常用控件测试\Form_Button.Designer.cs">
       <DependentUpon>Form_Button.cs</DependentUpon>
     </Compile>
+    <Compile Include="7_常用控件测试\Form_CheckedListBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_CheckedListBox.Designer.cs">
+      <DependentUpon>Form_CheckedListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_Combobox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_Combobox.Designer.cs">
+      <DependentUpon>Form_Combobox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_DataGridView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_DataGridView.Designer.cs">
+      <DependentUpon>Form_DataGridView.cs</DependentUpon>
+    </Compile>
     <Compile Include="7_常用控件测试\Form_Label.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="7_常用控件测试\Form_Label.Designer.cs">
       <DependentUpon>Form_Label.cs</DependentUpon>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_ListBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_ListBox.Designer.cs">
+      <DependentUpon>Form_ListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_ListView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_ListView.Designer.cs">
+      <DependentUpon>Form_ListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_PictureBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_PictureBox.Designer.cs">
+      <DependentUpon>Form_PictureBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_RadioAndCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_RadioAndCheck.Designer.cs">
+      <DependentUpon>Form_RadioAndCheck.cs</DependentUpon>
     </Compile>
     <Compile Include="7_常用控件测试\Form_Textbox.cs">
       <SubType>Form</SubType>
@@ -156,8 +198,29 @@
     <EmbeddedResource Include="7_常用控件测试\Form_Button.resx">
       <DependentUpon>Form_Button.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="7_常用控件测试\Form_CheckedListBox.resx">
+      <DependentUpon>Form_CheckedListBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="7_常用控件测试\Form_Combobox.resx">
+      <DependentUpon>Form_Combobox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="7_常用控件测试\Form_DataGridView.resx">
+      <DependentUpon>Form_DataGridView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="7_常用控件测试\Form_Label.resx">
       <DependentUpon>Form_Label.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="7_常用控件测试\Form_ListBox.resx">
+      <DependentUpon>Form_ListBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="7_常用控件测试\Form_ListView.resx">
+      <DependentUpon>Form_ListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="7_常用控件测试\Form_PictureBox.resx">
+      <DependentUpon>Form_PictureBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="7_常用控件测试\Form_RadioAndCheck.resx">
+      <DependentUpon>Form_RadioAndCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="7_常用控件测试\Form_Textbox.resx">
       <DependentUpon>Form_Textbox.cs</DependentUpon>

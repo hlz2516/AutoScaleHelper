@@ -36,14 +36,15 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(112, 3);
+            this.textBox1.Location = new System.Drawing.Point(97, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(171, 23);
             this.textBox1.TabIndex = 0;
@@ -51,24 +52,22 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Location = new System.Drawing.Point(28, 8);
+            this.label1.Location = new System.Drawing.Point(35, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 23);
+            this.label1.Size = new System.Drawing.Size(55, 30);
             this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Text = "测试";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(320, 144);
+            this.label3.Location = new System.Drawing.Point(100, 144);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 29);
             this.label3.TabIndex = 4;
@@ -79,7 +78,7 @@
             // 
             this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox3.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox3.Location = new System.Drawing.Point(320, 176);
+            this.textBox3.Location = new System.Drawing.Point(100, 176);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(171, 31);
             this.textBox3.TabIndex = 5;
@@ -89,7 +88,7 @@
             // 
             this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox4.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox4.Location = new System.Drawing.Point(320, 242);
+            this.textBox4.Location = new System.Drawing.Point(100, 242);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(171, 66);
@@ -98,6 +97,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
@@ -124,11 +124,34 @@
             this.label2.Text = resources.GetString("label2.Text");
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.richTextBox1.Location = new System.Drawing.Point(431, 176);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(228, 132);
+            this.richTextBox1.TabIndex = 9;
+            this.richTextBox1.Tag = "";
+            this.richTextBox1.Text = "你好\n这是测试";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(434, 148);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 23);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "RichTextBox";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
             // Form_Textbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.textBox4);
@@ -153,5 +176,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label4;
     }
 }

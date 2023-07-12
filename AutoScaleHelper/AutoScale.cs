@@ -1,22 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
 namespace AutoScaleHelper
 {
+    public delegate void ScaleEventHandler(Dictionary<string, CtrlInfo> designerInfos);
+
     public class AutoScale
     {
+        /// <summary>
+        /// 用于缩放时开发者可以针对某些特殊情况对个别控件进行调整
+        /// </summary>
+        public event ScaleEventHandler OnScale;
+
         private Dictionary<string, CtrlInfo> _ctrlInfos = new Dictionary<string, CtrlInfo>();
         private Dictionary<string, Size> ContainerDSizes = new Dictionary<string, Size>();
         private Dictionary<Control, List<Control>> groups =
             new Dictionary<Control, List<Control>>();
-        /// <summary>
-        /// 用于缩放时开发者可以针对某些特殊情况对个别控件进行微调
-        /// </summary>
-        private Action OnScale;
         private Control _container;
-
+        /// <summary>
+        /// 使缩放区域内的所有控件，其文本内容自适应其自身大小
+        /// </summary>
         public bool AutoFont { get; set; }
         public ScaleMode ScaleMode { get; set; } = ScaleMode.AdaptToContainer;
 
@@ -51,6 +55,10 @@ namespace AutoScaleHelper
                     //对于自定义控件，要记录该控件的ctrlinfo但其内部的子控件不做记录
                     //后者的判断是为了让自定义控件也可以应用此类进行自适应缩放
                     if (ctrl.Parent is UserControl && !(container is UserControl))
+                    {
+                        continue;
+                    }
+                    if (ctrl.Parent is DataGridView)
                     {
                         continue;
                     }
@@ -111,6 +119,11 @@ namespace AutoScaleHelper
                     {
                         continue;
                     }
+                    if (ctrl.Parent is DataGridView)
+                    {
+                        continue;
+                    }
+
                     queue.Enqueue(ctrl);
                 }
                 //如果当前控件是传入的容器，则不缩放
@@ -251,7 +264,7 @@ namespace AutoScaleHelper
                 }
             }
 
-            OnScale?.Invoke();
+            OnScale?.Invoke(_ctrlInfos);
         }
 
 
@@ -328,11 +341,6 @@ namespace AutoScaleHelper
                 var _ctrls = groups[target];
                 _ctrls.AddRange(ctrls);
             }
-        }
-
-        public void OnControlScaled(Action action)
-        {
-            OnScale = action;
         }
     }
 }

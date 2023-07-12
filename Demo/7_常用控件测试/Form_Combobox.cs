@@ -11,17 +11,20 @@ using System.Windows.Forms;
 
 namespace Demo._7_常用控件测试
 {
-    public partial class Form_Label : Form
+    public partial class Form_Combobox : Form
     {
-        AutoScale autoScale = new AutoScale(); 
-        public Form_Label()
+        AutoScale autoScale = new AutoScale();
+
+        public Form_Combobox()
         {
             InitializeComponent();
+
             autoScale.AutoFont = true;
+            autoScale.FontDependOn(comboBox1, label1);
             autoScale.SetContainer(this);
         }
 
-        private void Form_Label_SizeChanged(object sender, EventArgs e)
+        private void Form_Combobox_SizeChanged(object sender, EventArgs e)
         {
             autoScale.UpdateControlsLayout();
         }
