@@ -124,6 +124,12 @@
     <Compile Include="7_常用控件测试\Form_DataGridView.Designer.cs">
       <DependentUpon>Form_DataGridView.cs</DependentUpon>
     </Compile>
+    <Compile Include="7_常用控件测试\Form_Groupbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_Groupbox.Designer.cs">
+      <DependentUpon>Form_Groupbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="7_常用控件测试\Form_Label.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,12 @@
     <Compile Include="7_常用控件测试\Form_ListView.Designer.cs">
       <DependentUpon>Form_ListView.cs</DependentUpon>
     </Compile>
+    <Compile Include="7_常用控件测试\Form_Panel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_Panel.Designer.cs">
+      <DependentUpon>Form_Panel.cs</DependentUpon>
+    </Compile>
     <Compile Include="7_常用控件测试\Form_PictureBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,11 +166,23 @@
     <Compile Include="7_常用控件测试\Form_RadioAndCheck.Designer.cs">
       <DependentUpon>Form_RadioAndCheck.cs</DependentUpon>
     </Compile>
+    <Compile Include="7_常用控件测试\Form_SplitContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_SplitContainer.Designer.cs">
+      <DependentUpon>Form_SplitContainer.cs</DependentUpon>
+    </Compile>
     <Compile Include="7_常用控件测试\Form_Textbox.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="7_常用控件测试\Form_Textbox.Designer.cs">
       <DependentUpon>Form_Textbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_TreeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_TreeView.Designer.cs">
+      <DependentUpon>Form_TreeView.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -207,6 +231,9 @@
     <EmbeddedResource Include="7_常用控件测试\Form_DataGridView.resx">
       <DependentUpon>Form_DataGridView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="7_常用控件测试\Form_Groupbox.resx">
+      <DependentUpon>Form_Groupbox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="7_常用控件测试\Form_Label.resx">
       <DependentUpon>Form_Label.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,14 +243,23 @@
     <EmbeddedResource Include="7_常用控件测试\Form_ListView.resx">
       <DependentUpon>Form_ListView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="7_常用控件测试\Form_Panel.resx">
+      <DependentUpon>Form_Panel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="7_常用控件测试\Form_PictureBox.resx">
       <DependentUpon>Form_PictureBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="7_常用控件测试\Form_RadioAndCheck.resx">
       <DependentUpon>Form_RadioAndCheck.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="7_常用控件测试\Form_SplitContainer.resx">
+      <DependentUpon>Form_SplitContainer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="7_常用控件测试\Form_Textbox.resx">
       <DependentUpon>Form_Textbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="7_常用控件测试\Form_TreeView.resx">
+      <DependentUpon>Form_TreeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

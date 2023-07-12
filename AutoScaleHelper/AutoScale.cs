@@ -58,7 +58,7 @@ namespace AutoScaleHelper
                     {
                         continue;
                     }
-                    if (ctrl.Parent is DataGridView)
+                    if (ctrl.Parent is DataGridView || ctrl.Parent is SplitContainer)
                     {
                         continue;
                     }
@@ -119,7 +119,7 @@ namespace AutoScaleHelper
                     {
                         continue;
                     }
-                    if (ctrl.Parent is DataGridView)
+                    if (ctrl.Parent is DataGridView || ctrl.Parent is SplitContainer)
                     {
                         continue;
                     }

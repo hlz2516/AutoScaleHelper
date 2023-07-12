@@ -23,7 +23,7 @@ namespace Demo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_DataGridView());
+            Application.Run(new Form_SplitContainer());
         }
     }
 }
