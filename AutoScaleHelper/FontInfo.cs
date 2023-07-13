@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutoScaleHelper
 {
     internal class FontInfos
     {
         private static List<FontInfo> fontInfos = new List<FontInfo>();
-
+        /// <summary>
+        /// 获取该类型的字体信息，如果没有则进行初始化。
+        /// </summary>
+        /// <param name="fontName"></param>
+        /// <returns></returns>
         public static FontInfo GetFontInfo(string fontName)
         {
             foreach (var fontInfo in fontInfos)
@@ -63,7 +62,13 @@ namespace AutoScaleHelper
                 fontHeights[height] = size;
             }
         }
-
+        /// <summary>
+        /// 根据像素高度和字号类型获取合适的字体大小。
+        /// 如选用19磅的字体和中文字号，那么会返回18磅字体的字体大小
+        /// </summary>
+        /// <param name="height">字体高度（以像素为单位）</param>
+        /// <param name="fontSizeType">字号类型</param>
+        /// <returns></returns>
         public float GetFloorFontSizeByHeight(int height, FontSizeType fontSizeType)
         {
             float res = 5f;
@@ -92,7 +97,11 @@ namespace AutoScaleHelper
 
             return res;
         }
-
+        /// <summary>
+        /// 获取当前字体大小属于什么字号类型（如果大小在中文字号和国际字号中均能找到，那么优先选取中文）
+        /// </summary>
+        /// <param name="fontSize">字体大小</param>
+        /// <returns>字号类型</returns>
         public static FontSizeType GetFontSizeType(float fontSize)
         {
             foreach (float size in chnSizes)

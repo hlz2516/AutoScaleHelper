@@ -10,7 +10,8 @@ namespace AutoScaleHelper
     public class AutoScale
     {
         /// <summary>
-        /// 用于缩放时开发者可以针对某些特殊情况对个别控件进行调整
+        /// 在缩放区域大小调整后发生。designerInfos记录了在界面设计器中缩放区域内的所有控件的信息，
+        /// 比如location，size，font等，以控件的name作为键。
         /// </summary>
         public event ScaleEventHandler OnScale;
 
@@ -23,13 +24,20 @@ namespace AutoScaleHelper
         /// 使缩放区域内的所有控件，其文本内容自适应其自身大小
         /// </summary>
         public bool AutoFont { get; set; }
+        /// <summary>
+        /// 缩放模式。默认AdaptToContainer。
+        /// </summary>
         public ScaleMode ScaleMode { get; set; } = ScaleMode.AdaptToContainer;
 
         public AutoScale()
         {
 
         }
-
+        /// <summary>
+        /// 设置缩放区域（容器）。在SizeChanged事件中调用UpdateControlsLayout()时，
+        /// 缩放区域内的所有非特殊控件均会自适应缩放。
+        /// </summary>
+        /// <param name="container">缩放区域（容器）</param>
         public void SetContainer(Control container)
         {
             if (container == null)
@@ -107,7 +115,9 @@ namespace AutoScaleHelper
                 _ctrlInfos[curCtrl.Name] = ctrlInfo;
             }
         }
-
+        /// <summary>
+        /// 对缩放区域的所有控件进行缩放，包括位置，大小，字体等属性的调整。
+        /// </summary>
         public void UpdateControlsLayout()
         {
             Queue<Control> queue = new Queue<Control>();
@@ -127,7 +137,7 @@ namespace AutoScaleHelper
                     {
                         continue;
                     }
-                    if (ctrl.Parent is DataGridView)
+                    if (ctrl.Parent is DataGridView || ctrl.Parent is UpDownBase)
                     {
                         continue;
                     }
@@ -274,8 +284,10 @@ namespace AutoScaleHelper
 
             OnScale?.Invoke(_ctrlInfos);
         }
-
-
+        /// <summary>
+        /// 在缩放区域内动态添加一个控件，使得该控件在缩放区域大小改变时，也能具有缩放自适应的功能。
+        /// </summary>
+        /// <param name="ctrl">要动态添加的控件</param>
         public void AddControl(Control ctrl)
         {
             if (ctrl.Parent != null)
@@ -302,7 +314,11 @@ namespace AutoScaleHelper
                 }
             }
         }
-
+        /// <summary>
+        /// 在缩放区域内动态删除一个已具有缩放自适应功能的控件，
+        /// 使得该控件在缩放区域大小改变时，不再具有缩放自适应的功能。
+        /// </summary>
+        /// <param name="ctrl">要动态删除的控件</param>
         public void RemoveControl(Control ctrl)
         {
             if (_ctrlInfos.ContainsKey(ctrl.Name))

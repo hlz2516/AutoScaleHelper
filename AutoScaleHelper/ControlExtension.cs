@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace AutoScaleHelper
 {
     public static class ControlExtension
     {
+        /// <summary>
+        /// 设置该控件内的所有子控件的锚定位为空，包括该控件。
+        /// </summary>
+        /// <param name="ctrl"></param>
         public static void SetAnchorNone(this Control ctrl)
         {
             if (ctrl.Anchor == (AnchorStyles.Left | AnchorStyles.Top))
@@ -21,7 +20,11 @@ namespace AutoScaleHelper
                 SetAnchorNone(item);
             }
         }
-
+        /// <summary>
+        /// 设置ListView的列头的缩放模式。
+        /// </summary>
+        /// <param name="lv"></param>
+        /// <param name="mode"></param>
         public static void SetAutoSizeColumnsMode(this ListView lv,ListViewAutoSizeColumnsMode mode)
         {
             if (mode == ListViewAutoSizeColumnsMode.Fill)
@@ -55,7 +58,7 @@ namespace AutoScaleHelper
     }
 
     /// <summary>
-    /// ListView列宽度的缩放模式（本库扩展，请优先考虑AutoResizeColumns方法）
+    ///对 ListView列宽度的缩放模式的扩展（请优先考虑AutoResizeColumns方法，如果没有找到合适的，再来考虑使用该方法）
     /// </summary>
     public enum ListViewAutoSizeColumnsMode
     {
