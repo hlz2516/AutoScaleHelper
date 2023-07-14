@@ -37,8 +37,9 @@ namespace AutoScaleHelper
         /// 创建时设置缩放区域（容器）
         /// </summary>
         /// <param name="container">缩放区域（容器）</param>
-        public AutoScale(Control container)
+        public AutoScale(Control container,bool autoFont = true)
         {
+            this.AutoFont = autoFont;
             SetContainer(container);
         }
         /// <summary>
