@@ -23,25 +23,33 @@ namespace Demo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           // Application.Run(new Form1());
+
+            Application.Run(new ScaleModeForm1());
+            //Application.Run(new ScaleModeForm2());
+            //Application.Run(new ScaleModeForm3());
+            //Application.Run(new AnchorForm1());
+            //Application.Run(new NoScaleForm1());
+            //Application.Run(new DynaAddCtrlForm1());
+            //Application.Run(new UserControlForm1());
+            //Application.Run(new FontScaleForm1());
             //Application.Run(new Form_Button());
-            // Application.Run(new Form_CheckedListBox());
+            //Application.Run(new Form_CheckedListBox());
             //Application.Run(new Form_Combobox());
             //Application.Run(new Form_DataGridView());
             //Application.Run(new Form_Groupbox());
             //Application.Run(new Form_Label());
             //Application.Run(new Form_ListBox());
             //Application.Run(new Form_ListView());
-            //Application.Run(new Form_Panel());
+           // Application.Run(new Form_Panel());
             //Application.Run(new Form_PictureBox());
             //Application.Run(new Form_RadioAndCheck());
             //Application.Run(new Form_SplitContainer());
             //Application.Run(new Form_TagPage());
             //Application.Run(new Form_Textbox());
-            // Application.Run(new Form_ToolStrip());
-            // Application.Run(new Form_ToolstripContainer());
+            //Application.Run(new Form_ToolStrip());
+            //Application.Run(new Form_ToolstripContainer());
             //Application.Run(new Form_TreeView());
-            Application.Run(new Form_Others());
+            //Application.Run(new Form_Others());
         }
     }
 }

@@ -34,6 +34,14 @@ namespace AutoScaleHelper
 
         }
         /// <summary>
+        /// 创建时设置缩放区域（容器）
+        /// </summary>
+        /// <param name="container">缩放区域（容器）</param>
+        public AutoScale(Control container)
+        {
+            SetContainer(container);
+        }
+        /// <summary>
         /// 设置缩放区域（容器）。在SizeChanged事件中调用UpdateControlsLayout()时，
         /// 缩放区域内的所有非特殊控件均会自适应缩放。
         /// </summary>
@@ -87,7 +95,7 @@ namespace AutoScaleHelper
                     continue;
                 }
 
-                if (curCtrl is GroupBox || curCtrl is TabControl || 
+                if (curCtrl is GroupBox || curCtrl is TabControl ||
                     curCtrl is Panel || curCtrl is ContainerControl)
                 {
                     ContainerDSizes.Add(curCtrl.Name, curCtrl.ClientSize);
@@ -107,10 +115,11 @@ namespace AutoScaleHelper
                 ctrlInfo.Font = curCtrl.Font;
                 FontInfos.GetFontInfo(curCtrl.Font.Name);
                 ctrlInfo.FontSizeType = FontInfo.GetFontSizeType(curCtrl.Font.Size);
-                if (curCtrl.Tag != null)
-                {
-                    ctrlInfo.AutoScale = !curCtrl.Tag.ToString().Contains("NoScale");
-                }
+                ctrlInfo.parentName = curCtrl.Parent.Name;
+                //if (curCtrl.Tag != null)
+                //{
+                //    ctrlInfo.AutoScale = !curCtrl.Tag.ToString().Contains("NoScale");
+                //}
 
                 _ctrlInfos[curCtrl.Name] = ctrlInfo;
             }
@@ -153,9 +162,21 @@ namespace AutoScaleHelper
                 if (_ctrlInfos.ContainsKey(curCtrl.Name))
                 {
                     var ctrlInfo = _ctrlInfos[curCtrl.Name];
-                    if (!ctrlInfo.AutoScale)
+                    if (ctrlInfo.NoScale == NoScaleMode.Self)
                     {
                         continue;
+                    }
+                    else if (ctrlInfo.NoScale == NoScaleMode.Inner)
+                    {
+                        foreach (var ctrlInfoPair in _ctrlInfos)
+                        {
+                            //如果子控件的父容器名与当前控件的控件名相等
+                            if (curCtrl.Name == ctrlInfoPair.Value.parentName)
+                            {
+                                //将子控件设置为自身不缩放
+                                ctrlInfoPair.Value.NoScale = NoScaleMode.Self;
+                            }
+                        }
                     }
 
                     var parentSize = ContainerDSizes[curCtrl.Parent.Name];
@@ -261,6 +282,11 @@ namespace AutoScaleHelper
 
                     if (AutoFont)
                     {
+                        //如果是仅内部控件不缩放，不改变当前控件的字体大小
+                        if (ctrlInfo.NoScale == NoScaleMode.Inner)
+                        {
+                            continue;
+                        }
                         //根据原字体行高与控件高度的比例计算缩放后的字体行高
                         int fontHeight = (int)(ctrlInfo.Font.Height * 1.0f / ctrlInfo.Rect.Height * curCtrl.Height);
                         FontInfo fontInfo = FontInfos.GetFontInfo(ctrlInfo.Font.Name);
@@ -288,7 +314,8 @@ namespace AutoScaleHelper
         /// 在缩放区域内动态添加一个控件，使得该控件在缩放区域大小改变时，也能具有缩放自适应的功能。
         /// </summary>
         /// <param name="ctrl">要动态添加的控件</param>
-        public void AddControl(Control ctrl)
+        /// <param name="noScaleMode">不缩放模式</param>
+        public void AddControl(Control ctrl,NoScaleMode noScaleMode = NoScaleMode.None)
         {
             if (ctrl.Parent != null)
             {
@@ -301,12 +328,8 @@ namespace AutoScaleHelper
                     Width = ctrl.Width,
                     Height = ctrl.Height
                 };
-                //ctrlInfo.Font.Height = ctrl.Font.Height;
                 ctrlInfo.AspectRatio = ctrl.Width * 1.0f / ctrl.Height;
-                if (ctrl.Tag != null)
-                {
-                    ctrlInfo.AutoScale = !ctrl.Tag.ToString().Contains("NoScale");
-                }
+                ctrlInfo.NoScale = noScaleMode;
 
                 if (!_ctrlInfos.ContainsKey(ctrl.Name))
                 {
@@ -364,6 +387,15 @@ namespace AutoScaleHelper
             {
                 var _ctrls = groups[target];
                 _ctrls.AddRange(ctrls);
+            }
+        }
+
+        public void SetControlNoScale(string ctrlName, NoScaleMode noScale)
+        {
+            if (_ctrlInfos.ContainsKey(ctrlName))
+            {
+                var ctrlInfo = _ctrlInfos[ctrlName];
+                ctrlInfo.NoScale = noScale;
             }
         }
     }

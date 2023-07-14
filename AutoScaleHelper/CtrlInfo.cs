@@ -24,11 +24,15 @@ namespace AutoScaleHelper
         /// <summary>
         /// 是否启用缩放自适应
         /// </summary>
-        public bool AutoScale = true;
+        public NoScaleMode NoScale = NoScaleMode.None;
         /// <summary>
         /// 宽高比(宽(width)/高(height))
         /// </summary>
         public float AspectRatio = 0;
+        /// <summary>
+        /// 父容器的控件名称
+        /// </summary>
+        public string parentName;
     }
 
     public enum ScaleMode
@@ -45,5 +49,12 @@ namespace AutoScaleHelper
         /// 缩放时，控件仍保持自身的宽高比，缩放多少取决于其容器的垂直方向上的缩放比例
         /// </summary>
         MaintainSelfRatioV
+    }
+
+    public enum NoScaleMode
+    {
+        None,
+        Self,
+        Inner
     }
 }

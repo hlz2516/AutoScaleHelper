@@ -80,9 +80,7 @@
             // 
             // button5
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button5.BackColor = System.Drawing.Color.Red;
             this.button5.Location = new System.Drawing.Point(198, 172);
             this.button5.Name = "button5";
