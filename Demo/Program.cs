@@ -24,7 +24,7 @@ namespace Demo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new ScaleModeForm1());
+            //Application.Run(new ScaleModeForm1());
             //Application.Run(new ScaleModeForm2());
             //Application.Run(new ScaleModeForm3());
             //Application.Run(new AnchorForm1());
@@ -40,7 +40,7 @@ namespace Demo
             //Application.Run(new Form_Label());
             //Application.Run(new Form_ListBox());
             //Application.Run(new Form_ListView());
-           // Application.Run(new Form_Panel());
+            // Application.Run(new Form_Panel());
             //Application.Run(new Form_PictureBox());
             //Application.Run(new Form_RadioAndCheck());
             //Application.Run(new Form_SplitContainer());
@@ -50,6 +50,7 @@ namespace Demo
             //Application.Run(new Form_ToolstripContainer());
             //Application.Run(new Form_TreeView());
             //Application.Run(new Form_Others());
+            Application.Run(new Form_Chart1());
         }
     }
 }

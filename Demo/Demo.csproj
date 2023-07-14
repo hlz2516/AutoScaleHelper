@@ -36,6 +36,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -106,6 +107,12 @@
     </Compile>
     <Compile Include="7_常用控件测试\Form_Button.Designer.cs">
       <DependentUpon>Form_Button.cs</DependentUpon>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_Chart1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="7_常用控件测试\Form_Chart1.Designer.cs">
+      <DependentUpon>Form_Chart1.cs</DependentUpon>
     </Compile>
     <Compile Include="7_常用控件测试\Form_CheckedListBox.cs">
       <SubType>Form</SubType>
@@ -246,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="7_常用控件测试\Form_Button.resx">
       <DependentUpon>Form_Button.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="7_常用控件测试\Form_Chart1.resx">
+      <DependentUpon>Form_Chart1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="7_常用控件测试\Form_CheckedListBox.resx">
       <DependentUpon>Form_CheckedListBox.cs</DependentUpon>
