@@ -37,7 +37,7 @@ namespace AutoScaleHelper
         /// 创建时设置缩放区域（容器）
         /// </summary>
         /// <param name="container">缩放区域（容器）</param>
-        public AutoScale(Control container,bool autoFont = true)
+        public AutoScale(Control container, bool autoFont = true)
         {
             this.AutoFont = autoFont;
             SetContainer(container);
@@ -283,8 +283,8 @@ namespace AutoScaleHelper
 
                     if (AutoFont)
                     {
-                        //如果是仅内部控件不缩放，不改变当前控件的字体大小
-                        if (ctrlInfo.NoScale == NoScaleMode.Inner)
+                        //如果是仅内部控件不缩放或者字体不缩放，不改变当前控件的字体大小
+                        if (ctrlInfo.NoScale == NoScaleMode.Inner || ctrlInfo.NoScale == NoScaleMode.Font)
                         {
                             continue;
                         }
@@ -297,15 +297,12 @@ namespace AutoScaleHelper
                 }
             }
 
-            //针对高度只受字体影响的控件(textbox，combobox等)特殊处理
-            if (AutoFont)
+            //针对设置了字体依赖的控件特殊处理
+            foreach (var g in groups)
             {
-                foreach (var g in groups)
+                foreach (var item in g.Value)
                 {
-                    foreach (var item in g.Value)
-                    {
-                        item.Font = g.Key.Font.Clone() as Font;
-                    }
+                    item.Font = g.Key.Font.Clone() as Font;
                 }
             }
 
@@ -316,7 +313,7 @@ namespace AutoScaleHelper
         /// </summary>
         /// <param name="ctrl">要动态添加的控件</param>
         /// <param name="noScaleMode">不缩放模式</param>
-        public void AddControl(Control ctrl,NoScaleMode noScaleMode = NoScaleMode.None)
+        public void AddControl(Control ctrl, NoScaleMode noScaleMode = NoScaleMode.None)
         {
             if (ctrl.Parent != null)
             {

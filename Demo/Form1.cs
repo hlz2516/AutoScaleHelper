@@ -27,11 +27,5 @@ namespace Demo
         {
             autoScale.UpdateControlsLayout();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            float biggerSize = domainUpDown1.Font.Size + 1.5f;
-            domainUpDown1.Font = new Font("宋体", biggerSize);
-        }
     }
 }

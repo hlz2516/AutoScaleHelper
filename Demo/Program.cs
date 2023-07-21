@@ -31,6 +31,7 @@ namespace Demo
             //Application.Run(new NoScaleForm1());
             //Application.Run(new DynaAddCtrlForm1());
             //Application.Run(new UserControlForm1());
+            Application.Run(new UserControlForm2());
             //Application.Run(new FontScaleForm1());
             //Application.Run(new Form_Button());
             //Application.Run(new Form_CheckedListBox());
@@ -50,7 +51,8 @@ namespace Demo
             //Application.Run(new Form_ToolstripContainer());
             //Application.Run(new Form_TreeView());
             //Application.Run(new Form_Others());
-            Application.Run(new Form_Chart1());
+            // Application.Run(new Form_Chart1());
+            //Application.Run(new Form1());
         }
     }
 }

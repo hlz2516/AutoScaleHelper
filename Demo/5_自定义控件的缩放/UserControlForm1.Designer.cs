@@ -37,7 +37,7 @@
             this.userControl11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.userControl11.Content = "二哈";
             this.userControl11.Icon = global::Demo.Properties.Resources.二哈;
-            this.userControl11.Location = new System.Drawing.Point(362, 158);
+            this.userControl11.Location = new System.Drawing.Point(338, 157);
             this.userControl11.Name = "userControl11";
             this.userControl11.Size = new System.Drawing.Size(100, 115);
             this.userControl11.TabIndex = 0;

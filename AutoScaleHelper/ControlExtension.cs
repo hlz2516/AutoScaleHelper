@@ -2,6 +2,8 @@
 
 namespace AutoScaleHelper
 {
+    public delegate void ControlScaleAction(Control ctrl, AutoScale autoScale);
+
     public static class ControlExtension
     {
         /// <summary>
@@ -39,6 +41,16 @@ namespace AutoScaleHelper
             {
                
             }
+        }
+        /// <summary>
+        /// 给一个自定义控件挂载一个AutoScale实例（自动创建）
+        /// </summary>
+        /// <param name="ctrl"></param>
+        /// <param name="action"></param>
+        public static void MountAutoScale(this UserControl ctrl, ControlScaleAction action)
+        {
+            AutoScale autoScale = new AutoScale();
+            action?.Invoke(ctrl, autoScale);
         }
 
         private static void ListviewFillWidth(ListView lv)

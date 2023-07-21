@@ -55,6 +55,7 @@ namespace AutoScaleHelper
     {
         None,
         Self,
-        Inner
+        Inner,
+        Font
     }
 }

@@ -22,6 +22,8 @@ namespace Demo._3_对单个控件设置不缩放
             autoScale.SetContainer(this);
             //设置Button1自身不缩放
             autoScale.SetControlNoScale(button1.Name, NoScaleMode.Self);
+            //设置button2仅字体不缩放
+            autoScale.SetControlNoScale(button2.Name, NoScaleMode.Font);
             //设置panel1里的控件不缩放，但panel1缩放
             autoScale.SetControlNoScale(panel1.Name, NoScaleMode.Inner);
         }

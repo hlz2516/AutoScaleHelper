@@ -96,6 +96,12 @@
     <Compile Include="5_自定义控件的缩放\UserControlForm1.Designer.cs">
       <DependentUpon>UserControlForm1.cs</DependentUpon>
     </Compile>
+    <Compile Include="5_自定义控件的缩放\UserControlForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="5_自定义控件的缩放\UserControlForm2.Designer.cs">
+      <DependentUpon>UserControlForm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="6_字体自适应\FontScaleForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="5_自定义控件的缩放\UserControlForm1.resx">
       <DependentUpon>UserControlForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="5_自定义控件的缩放\UserControlForm2.resx">
+      <DependentUpon>UserControlForm2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="6_字体自适应\FontScaleForm1.resx">
       <DependentUpon>FontScaleForm1.cs</DependentUpon>
