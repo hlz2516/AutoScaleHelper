@@ -31,17 +31,17 @@ namespace Demo
             //Application.Run(new NoScaleForm1());
             //Application.Run(new DynaAddCtrlForm1());
             //Application.Run(new UserControlForm1());
-            Application.Run(new UserControlForm2());
+            //Application.Run(new UserControlForm2());
             //Application.Run(new FontScaleForm1());
             //Application.Run(new Form_Button());
             //Application.Run(new Form_CheckedListBox());
             //Application.Run(new Form_Combobox());
-            //Application.Run(new Form_DataGridView());
+           // Application.Run(new Form_DataGridView());
             //Application.Run(new Form_Groupbox());
             //Application.Run(new Form_Label());
             //Application.Run(new Form_ListBox());
             //Application.Run(new Form_ListView());
-            // Application.Run(new Form_Panel());
+            //Application.Run(new Form_Panel());
             //Application.Run(new Form_PictureBox());
             //Application.Run(new Form_RadioAndCheck());
             //Application.Run(new Form_SplitContainer());
@@ -51,8 +51,8 @@ namespace Demo
             //Application.Run(new Form_ToolstripContainer());
             //Application.Run(new Form_TreeView());
             //Application.Run(new Form_Others());
-            // Application.Run(new Form_Chart1());
-            //Application.Run(new Form1());
+            //Application.Run(new Form_Chart1());
+            Application.Run(new Form1());
         }
     }
 }

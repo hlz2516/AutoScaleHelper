@@ -19,16 +19,16 @@ Nuget: https://www.nuget.org/packages/AutoScaleHelper
 
 ## 基本使用
 
-首先，将窗体的自带缩放模式改为None。具体地，找到该窗体的AutoSacleMode属性，将其改为None。（注意，如果你要缩放的区域(容器)不是窗体但带有autoscalemode属性，仍然需要改为None）  
+首先，将窗体的自带缩放模式改为None。具体地，找到该窗体的AutoSacleMode属性，将其改为None。（如果你要缩放的区域(容器)不是窗体但带有autoscalemode属性，最好也改为None）  
 ![autoscalemode](./img/autoscalemode.jpg)
 
-设置每个直接子控件的anchor属性。当前可以将每个子控件的anchor设为none。具体如何理解和设置anchor具体请看【锚定位】一节。  
+设置每个直接子控件的anchor属性。如果你不知道anchor属性的作用，在该例子中你可以将每个子控件的anchor设为none。具体如何理解和设置anchor请看【锚定位】一节。  
 
 转到该窗体的后台代码部分，编写代码如下图所示：  
 ![窗体1后台代码](./img/Form1Backend.jpg)  
 
 需要注意的点：  
-SizeChanged事件处理程序（也就是ScaleModeForm1_SizeChanged方法）是在界面设计器中的事件列表中找到SizeChanged事件双击生成的。  
+缩放区域（容器）一定要有SizeChanged事件处理程序（在该例子中就是ScaleModeForm1_SizeChanged方法）。  
 SetContainer方法用于设置缩放区域，这里就是设置本窗体为缩放区域  
 SuspendLayout和ResumeLayout方法用于布局刷新，这两个方法会使得窗体缩放时在视觉效果上更加流畅，在控件较多时尤为明显，若要使用，这两个方法必须成对出现。  
 
@@ -79,7 +79,7 @@ SuspendLayout和ResumeLayout方法用于布局刷新，这两个方法会使得�
 
 ## 更新
 
-### 1.0.1即将更新
+### 1.0.1更新
 
 - 不缩放模式添加不缩放字体类型，设置后该控件字体不缩放
 - 动态添加自定义控件时可以挂载一个AutoScale并对其进行操作，这样做是为了不破坏自定义控件的内部代码而又能给控件实例添加缩放自适应的功能。
