@@ -11,7 +11,7 @@ namespace AutoScaleHelper
     {
         /// <summary>
         /// 在缩放区域大小调整后发生。designerInfos记录了在界面设计器中缩放区域内的所有控件的信息，
-        /// 比如location，size，font等，以控件的name作为键。
+        /// 比如location，size，font等，以控件名作为键。
         /// </summary>
         public event ScaleEventHandler OnScale;
 
@@ -117,10 +117,6 @@ namespace AutoScaleHelper
                 FontInfos.GetFontInfo(curCtrl.Font.Name);
                 ctrlInfo.FontSizeType = FontInfo.GetFontSizeType(curCtrl.Font.Size);
                 ctrlInfo.parentName = curCtrl.Parent.Name;
-                //if (curCtrl.Tag != null)
-                //{
-                //    ctrlInfo.AutoScale = !curCtrl.Tag.ToString().Contains("NoScale");
-                //}
 
                 _ctrlInfos[curCtrl.Name] = ctrlInfo;
             }
@@ -387,7 +383,11 @@ namespace AutoScaleHelper
                 _ctrls.AddRange(ctrls);
             }
         }
-
+        /// <summary>
+        /// 解除一个控件对目标控件的字体依赖。
+        /// </summary>
+        /// <param name="ctrl">依赖控件</param>
+        /// <param name="target">目标控件</param>
         public void RelieveFontDependency(Control ctrl,Control target)
         {
             if (groups.ContainsKey(target))
@@ -399,7 +399,10 @@ namespace AutoScaleHelper
                 }
             }
         }
-
+        /// <summary>
+        /// 删除所有与该目标控件相关的字体依赖。
+        /// </summary>
+        /// <param name="target">目标控件</param>
         public void RelieveFontDependency(Control target)
         {
             if (groups.ContainsKey(target))
@@ -407,8 +410,12 @@ namespace AutoScaleHelper
                 groups.Remove(target);
             }
         }
-
-        public void SetControlNoScale(string ctrlName, NoScaleMode noScale)
+        /// <summary>
+        /// 设置某个控件不缩放，可以指定不缩放形式，默认自身不缩放
+        /// </summary>
+        /// <param name="ctrlName">控件名</param>
+        /// <param name="noScale">不缩放形式</param>
+        public void SetControlNoScale(string ctrlName, NoScaleMode noScale = NoScaleMode.Self)
         {
             if (_ctrlInfos.ContainsKey(ctrlName))
             {
