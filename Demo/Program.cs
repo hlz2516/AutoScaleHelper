@@ -42,7 +42,7 @@ namespace Demo
             //Application.Run(new Form_Label());
             //Application.Run(new Form_ListBox());
             //Application.Run(new Form_ListView());
-            //Application.Run(new Form_Panel());
+            Application.Run(new Form_Panel());
             //Application.Run(new Form_PictureBox());
             //Application.Run(new Form_RadioAndCheck());
             //Application.Run(new Form_SplitContainer());
@@ -53,7 +53,7 @@ namespace Demo
             //Application.Run(new Form_TreeView());
             //Application.Run(new Form_Others());
             //Application.Run(new Form_Chart1());
-            Application.Run(new Form1());
+            //Application.Run(new Form1());
         }
     }
 }
