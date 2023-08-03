@@ -348,7 +348,7 @@ namespace AutoScaleHelper
             }
         }
         /// <summary>
-        /// 指定一个控件的字体依赖于另一个目标控件。
+        /// 指定一个控件的字体依赖于另一个目标控件，目标控件必须在缩放区域内才有效。
         /// 只有在每次容器大小发生变化时才发生更新字体操作。
         /// </summary>
         /// <param name="ctrl">需要依赖的控件</param>
@@ -369,7 +369,7 @@ namespace AutoScaleHelper
         }
 
         /// <summary>
-        /// 指定多个控件的字体依赖于另一个目标控件。
+        /// 指定多个控件的字体依赖于另一个目标控件，目标控件必须在缩放区域内才有效。
         /// </summary>
         /// <param name="target">目标控件</param>
         /// <param name="ctrls">需要依赖的一组控件</param>
@@ -385,6 +385,26 @@ namespace AutoScaleHelper
             {
                 var _ctrls = groups[target];
                 _ctrls.AddRange(ctrls);
+            }
+        }
+
+        public void RelieveFontDependency(Control ctrl,Control target)
+        {
+            if (groups.ContainsKey(target))
+            {
+                var ctrls = groups[target];
+                if (ctrls.Contains(ctrl))
+                {
+                    ctrls.Remove(ctrl);
+                }
+            }
+        }
+
+        public void RelieveFontDependency(Control target)
+        {
+            if (groups.ContainsKey(target))
+            {
+                groups.Remove(target);
             }
         }
 

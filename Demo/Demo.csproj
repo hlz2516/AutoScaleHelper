@@ -84,6 +84,12 @@
     <Compile Include="4_动态添加控件\DynaAddCtrlForm1.Designer.cs">
       <DependentUpon>DynaAddCtrlForm1.cs</DependentUpon>
     </Compile>
+    <Compile Include="4_动态添加控件\DynaAddCtrlForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="4_动态添加控件\DynaAddCtrlForm2.Designer.cs">
+      <DependentUpon>DynaAddCtrlForm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="5_自定义控件的缩放\UserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -247,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="4_动态添加控件\DynaAddCtrlForm1.resx">
       <DependentUpon>DynaAddCtrlForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="4_动态添加控件\DynaAddCtrlForm2.resx">
+      <DependentUpon>DynaAddCtrlForm2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="5_自定义控件的缩放\UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
