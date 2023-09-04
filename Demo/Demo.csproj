@@ -72,6 +72,12 @@
     <Compile Include="2_设定锚\AnchorForm1.Designer.cs">
       <DependentUpon>AnchorForm1.cs</DependentUpon>
     </Compile>
+    <Compile Include="2_设定锚\AnchorForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2_设定锚\AnchorForm2.Designer.cs">
+      <DependentUpon>AnchorForm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="3_对单个控件设置不缩放\NoScaleForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="2_设定锚\AnchorForm1.resx">
       <DependentUpon>AnchorForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2_设定锚\AnchorForm2.resx">
+      <DependentUpon>AnchorForm2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="3_对单个控件设置不缩放\NoScaleForm1.resx">
       <DependentUpon>NoScaleForm1.cs</DependentUpon>

@@ -6,11 +6,7 @@ namespace AutoScaleHelper
 
     public static class ControlExtension
     {
-        /// <summary>
-        /// 设置该控件内的所有子控件的锚定位为空，包括该控件。
-        /// </summary>
-        /// <param name="ctrl"></param>
-        public static void SetAnchorNone(this Control ctrl)
+        public static void SetAnchorNone(this Control ctrl, Control[] excludes = null)
         {
             if (ctrl.Anchor == (AnchorStyles.Left | AnchorStyles.Top))
             {
@@ -19,7 +15,11 @@ namespace AutoScaleHelper
 
             foreach (Control item in ctrl.Controls)
             {
-                SetAnchorNone(item);
+                if (excludes.Contains(item))
+                {
+                    continue;
+                }
+                SetAnchorNone(item,excludes);
             }
         }
         /// <summary>
