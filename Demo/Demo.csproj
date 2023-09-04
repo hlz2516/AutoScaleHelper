@@ -66,6 +66,12 @@
     <Compile Include="1_缩放模式\ScaleModeForm1.Designer.cs">
       <DependentUpon>ScaleModeForm1.cs</DependentUpon>
     </Compile>
+    <Compile Include="1_缩放模式\ScaleModeForm4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1_缩放模式\ScaleModeForm4.Designer.cs">
+      <DependentUpon>ScaleModeForm4.cs</DependentUpon>
+    </Compile>
     <Compile Include="2_设定锚\AnchorForm1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +257,9 @@
     <EmbeddedResource Include="1_缩放模式\ScaleModeForm1.resx">
       <DependentUpon>ScaleModeForm1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="1_缩放模式\ScaleModeForm4.resx">
+      <DependentUpon>ScaleModeForm4.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="2_设定锚\AnchorForm1.resx">
       <DependentUpon>AnchorForm1.cs</DependentUpon>
     </EmbeddedResource>
@@ -362,16 +371,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AutoScaleHelper\AutoScaleHelper.csproj">
-      <Project>{e600969c-64b6-4501-a6c8-e685747a2704}</Project>
-      <Name>AutoScaleHelper</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\疑惑鸟.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\二哈.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutoScaleHelper\AutoScaleHelper.csproj">
+      <Project>{e600969c-64b6-4501-a6c8-e685747a2704}</Project>
+      <Name>AutoScaleHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

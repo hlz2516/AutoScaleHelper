@@ -18,7 +18,7 @@ namespace Demo._2_设定锚
         public AnchorForm2()
         {
             InitializeComponent();
-            this.SetAnchorNone(new Control[] { button2 });
+            this.SetAnchorNoneExcept(button2);
             autoScale = new AutoScale(this);
         }
     }
