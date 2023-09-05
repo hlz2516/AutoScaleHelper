@@ -53,9 +53,21 @@ namespace AutoScaleHelper
 
     public enum NoScaleMode
     {
+        /// <summary>
+        /// 正常缩放
+        /// </summary>
         None,
+        /// <summary>
+        /// 只缩放自身而不缩放其内部子控件
+        /// </summary>
         Self,
+        /// <summary>
+        /// 只缩放其内部子控件而不缩放自身
+        /// </summary>
         Inner,
+        /// <summary>
+        /// 只缩放字体
+        /// </summary>
         Font
     }
 }

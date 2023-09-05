@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Linq;
+using System.Windows.Forms;
 
 namespace AutoScaleHelper
 {
@@ -7,12 +8,12 @@ namespace AutoScaleHelper
     public static class ControlExtension
     {
         /// <summary>
-        /// 设置该控件内的所有子控件的锚定位为空，包括该控件。
+        /// 设置该控件及其内部子控件的默认Anchor(Left + Top)为None。
         /// </summary>
         /// <param name="ctrl"></param>
         public static void SetAnchorNone(this Control ctrl)
         {
-            if (ctrl.Anchor == (AnchorStyles.Left | AnchorStyles.Top))
+            if (ctrl.Anchor == (AnchorStyles.Left | AnchorStyles.Top) && ctrl.Dock == DockStyle.None)
             {
                 ctrl.Anchor = AnchorStyles.None;
             }
@@ -20,6 +21,28 @@ namespace AutoScaleHelper
             foreach (Control item in ctrl.Controls)
             {
                 SetAnchorNone(item);
+            }
+        }
+        /// <summary>
+        /// 设置该控件及其内部子控件的默认Anchor(Left + Top)为None。
+        /// 可以保留一些内部子控件的的默认Anchor不受该方法的影响。
+        /// </summary>
+        /// <param name="ctrl">要设置的控件</param>
+        /// <param name="excludes">不受该方法影响的内部子控件</param>
+        public static void SetAnchorNoneExcept(this Control ctrl,params Control[] excludes)
+        {
+            if (ctrl.Anchor == (AnchorStyles.Left | AnchorStyles.Top) && ctrl.Dock == DockStyle.None)
+            {
+                ctrl.Anchor = AnchorStyles.None;
+            }
+
+            foreach (Control item in ctrl.Controls)
+            {
+                if (excludes != null && excludes.Contains(item))
+                {
+                    continue;
+                }
+                SetAnchorNoneExcept(item, excludes);
             }
         }
         /// <summary>

@@ -27,6 +27,7 @@ namespace Demo
             //Application.Run(new ScaleModeForm1());
             //Application.Run(new ScaleModeForm2());
             //Application.Run(new ScaleModeForm3());
+            Application.Run(new ScaleModeForm4());
             //Application.Run(new AnchorForm1());
             //Application.Run(new NoScaleForm1());
             //Application.Run(new DynaAddCtrlForm1());
@@ -42,7 +43,7 @@ namespace Demo
             //Application.Run(new Form_Label());
             //Application.Run(new Form_ListBox());
             //Application.Run(new Form_ListView());
-            Application.Run(new Form_Panel());
+            //Application.Run(new Form_Panel());
             //Application.Run(new Form_PictureBox());
             //Application.Run(new Form_RadioAndCheck());
             //Application.Run(new Form_SplitContainer());

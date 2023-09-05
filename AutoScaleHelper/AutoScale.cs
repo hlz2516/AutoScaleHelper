@@ -34,7 +34,7 @@ namespace AutoScaleHelper
 
         }
         /// <summary>
-        /// 创建时设置缩放区域（容器）
+        /// 创建时设置缩放区域（容器）。该构造函数内部会调用SetContainer。
         /// </summary>
         /// <param name="container">缩放区域（容器）</param>
         public AutoScale(Control container, bool autoFont = true)
@@ -122,14 +122,18 @@ namespace AutoScaleHelper
             }
         }
         /// <summary>
-        /// 对缩放区域的所有控件进行缩放，包括位置，大小，字体等属性的调整。
+        /// 对缩放区域的子控件进行缩放，包括位置，大小，字体等属性的调整。
+        /// 如果缩放容器的布局是多层次的，则可以通过recursive参数设置是否对每个层次进行缩放
         /// </summary>
-        public void UpdateControlsLayout()
+        /// <param name="recursive"></param>
+        /// <exception cref="Exception"></exception>
+        public void UpdateControlsLayout(bool recursive = true)
         {
+            int stopPush = 1;
             Queue<Control> queue = new Queue<Control>();
             queue.Enqueue(_container);
 
-            while (queue.Count > 0)
+            while (stopPush > 0 && queue.Count > 0)
             {
                 Control curCtrl = queue.Dequeue();
 
@@ -153,6 +157,10 @@ namespace AutoScaleHelper
                 //如果当前控件是传入的容器，则不缩放
                 if (curCtrl == _container)
                 {
+                    if (!recursive)  //如果只缩放当前这一层级的布局
+                    {
+                        stopPush = queue.Count;
+                    }
                     continue;
                 }
 
@@ -175,8 +183,15 @@ namespace AutoScaleHelper
                             }
                         }
                     }
-
-                    var parentSize = ContainerDSizes[curCtrl.Parent.Name];
+                    Size parentSize;
+                    ContainerDSizes.TryGetValue(curCtrl.Parent.Name, out parentSize);
+                    if (parentSize == null)
+                    {
+                        throw new Exception("出现该错误有可能是在调用SetContainer后，" +
+                            "缩放区域内部动态添加或删除了容器类的控件（如panel,ContainerControl,GroupBox,TabControl），" +
+                            $"该容器名为{curCtrl.Parent.Name}，容器内部有一子控件，名为{curCtrl.Name}，" +
+                            $"如果该容器是动态添加或删除的，请参考Demo--动态添加控件");
+                    }
                     //获取设计时与当前容器的(水平和垂直)缩放比例
                     float ratioH = curCtrl.Parent.ClientSize.Width * 1.0f / parentSize.Width;
                     float ratioV = curCtrl.Parent.ClientSize.Height * 1.0f / parentSize.Height;
@@ -290,6 +305,11 @@ namespace AutoScaleHelper
                         float fontSize = fontInfo.GetFloorFontSizeByHeight(fontHeight, ctrlInfo.FontSizeType);
                         curCtrl.Font = new Font(ctrlInfo.Font.Name, fontSize);
                     }
+                }
+
+                if (!recursive)
+                {
+                    stopPush--;
                 }
             }
 
