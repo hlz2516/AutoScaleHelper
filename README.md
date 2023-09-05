@@ -16,6 +16,7 @@
 - 可以设置某些控件的字体变化依赖于某个控件的字体
 
 ## 安装
+可在Nuget包管理器中搜索AutoScaleHelper进行下载安装。  
 Nuget: https://www.nuget.org/packages/AutoScaleHelper
 
 ## 基本使用
@@ -23,14 +24,15 @@ Nuget: https://www.nuget.org/packages/AutoScaleHelper
 首先，将窗体的自带缩放模式改为None。具体地，找到该窗体的AutoSacleMode属性，将其改为None。（如果你要缩放的区域(容器)不是窗体但带有autoscalemode属性，最好也改为None）  
 ![autoscalemode](./img/autoscalemode.jpg)
 
-设置每个直接子控件的anchor属性。如果你不知道anchor属性的作用，在该例子中你可以将每个子控件的anchor设为none。具体如何理解和设置anchor请看【锚定位】一节。  
+设置每个直接子控件的anchor属性。如果你不知道anchor属性的作用，在该例子中你可以将每个子控件的anchor设为none或者调用控件的SetAnchorNone扩展方法。具体如何理解和设置anchor请看【锚定位】一节。  
 
 转到该窗体的后台代码部分，编写代码如下图所示：  
 ![窗体1后台代码](./img/Form1Backend.jpg)  
 
 需要注意的点：  
+因为需要缩放的控件不止一个，通常是一个容器（如Panel，GroupBox等）里的大部分子控件都要缩放，所以这里我们把这个容器叫做“缩放区域（容器）”。  
 缩放区域（容器）一定要有SizeChanged事件处理程序（在该例子中就是ScaleModeForm1_SizeChanged方法）。  
-SetContainer方法用于设置缩放区域，这里就是设置本窗体为缩放区域  
+SetContainer方法用于设置缩放区域。  
 SuspendLayout和ResumeLayout方法用于布局刷新，这两个方法会使得窗体缩放时在视觉效果上更加流畅，在控件较多时尤为明显，若要使用，这两个方法必须成对出现。  
 
 ## 缩放模式
@@ -66,13 +68,15 @@ SuspendLayout和ResumeLayout方法用于布局刷新，这两个方法会使得�
 
 ## 设置字体自适应
 
-通过设置AutoScale的AutoFont为True即可。
+通过设置AutoScale的AutoFont为True即可。  
+如果你的需求是只需要字体自适应，可以使用TextScale而不是AutoScale类。
 
 ## 设置某个控件不缩放
 
-不缩放有两种模式，分别是自身不缩放和内部控件不缩放。设置不缩放的控件必须在缩放范围内才有效。    
+不缩放有三种模式，分别是自身不缩放和内部控件不缩放。设置不缩放的控件必须在缩放范围内才有效。    
 - 自身不缩放：即控件自身不受缩放区域影响，保持原始位置，大小和字体。
-- 内部控件不缩放：即控件的内部子控件不缩放，但该控件缩放，也就是说，该控件的位置，大小依然受缩放区域影响，但其内部的子控件不会缩放，且字体不会改变。
+- 内部控件不缩放：即控件的内部子控件不缩放，但该控件缩放，也就是说，该控件的位置，大小依然受缩放区域影响，但其内部的子控件不会缩放，且字体不会改变。  
+- 字体不缩放：即该控件的字体不缩放。
 
 ## 字体依赖
 
@@ -83,6 +87,35 @@ SuspendLayout和ResumeLayout方法用于布局刷新，这两个方法会使得�
 autoScale.FontDependOn(textBox1, label1);
 ```
 
+## Q&A
+
+Q：该类库可以实现窗体分辨率自适应吗？  
+A：可以借助该类库实现。首先要明确一点，AutoScaleHelper主要解决窗体在大小改变时，如何让内部控件自适应布局的问题，
+但窗体本身大小如何适应当前屏幕分辨率，该类库并没有针对这个问题的类或者方法，开发者需要自己去做这个事情。  
+
+Q：窗体大小改变时，label好像没有缩放？  
+A：如果label的AutoSize属性设置为True的话，其大小会自适应内容大小，因此即使其容器布局在缩放，也不影响其大小。
+要想label的大小也发生变化，请把AutoSize改为false。  
+
+Q：窗体大小改变时，两个紧挨着的label会出现遮挡现象，怎么解决？  
+A：使用TableLayoutPanel来包裹这两个label，网格布局设置为一行两列，将两个label分别放入
+第一列和第二列，并设置它们的anchor使得它们向网格布局的列中间靠拢，
+详情可参考Demo项目中的Demo._7_常用控件测试.Form_Textbox窗体中的例子。  
+
+Q：窗体大小改变时，如何让TextBox(单行)也随着缩放？  
+A：TextBox有一个特点是，它的高度只能通过设置字体大小来改变，具有此特点的控件还有ComboBox，NumbericUpDown等。
+因为高度无法主动改变，所以AutoScale的AutoFont属性对其也不会生效（AutoFont的字体缩放是根据文本所在控件的高度缩放比例进行缩放的），
+因此本人另辟蹊径，让TextBox这类控件的字体大小变化依赖于某个其他控件（也就是前面所说的字体依赖），这个“其他控件”必须是在缩放容器里的。
+详情可参考Demo项目中的Demo._7_常用控件测试.Form_Textbox窗体中的例子。 
+
+Q：为什么自定义控件内部不会缩放？  
+A：AutoScale类在缩放控件大小时，如果遇到的是自定义控件内部的控件，则不会处理。
+原则上，自定义控件内部的子控件应该如何自适应布局缩放，是该控件开发者要解决的问题，
+而不应该让自适应布局帮助类来解决。    
+你可以给自定义控件挂载一个AutoScale实例，使得其具有自适应布局的特性，
+详情可参考Demo._5_自定义控件的缩放.UserControlForm1和UserControlForm2。  
+
+
 ## 其他
 
 更多例子请clone仓库中的Demo项目学习和借鉴。如果您觉得该项目对您有帮助，请留下您的star谢谢~
@@ -92,6 +125,10 @@ autoScale.FontDependOn(textBox1, label1);
 ### 1.0.2即将更新
 
 - 增加解除字体依赖方法，以避免动态删除字体依赖相关的控件时导致报错的问题
+- 新增TextScale类。考虑到这种情况：界面已经做了缩放自适应（通过网格布局或流式布局），但是字体没有做自适应处理。
+此时可以使用TextScale来单独对文本进行一个大小的自适应
+- AutoScale的UpdateControlsLayout方法新增一个传入参数recursive，该参数设置是否对每个层次进行缩放
+- 控件扩展方法新增SetAnchorNoneExcept，该方法可以在设置子控件anchor为None时，控制某些子控件的anchor保持之前的设置不变
 
 ### 1.0.1更新
 
