@@ -5,6 +5,7 @@ using Demo._4_动态添加控件;
 using Demo._5_自定义控件的缩放;
 using Demo._6_字体自适应;
 using Demo._7_常用控件测试;
+using Demo.一些测试;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace Demo
             //Application.Run(new ScaleModeForm1());
             //Application.Run(new ScaleModeForm2());
             //Application.Run(new ScaleModeForm3());
-            Application.Run(new ScaleModeForm4());
+            //Application.Run(new ScaleModeForm4());
             //Application.Run(new AnchorForm1());
             //Application.Run(new NoScaleForm1());
             //Application.Run(new DynaAddCtrlForm1());
@@ -35,6 +36,7 @@ namespace Demo
             //Application.Run(new UserControlForm1());
             //Application.Run(new UserControlForm2());
             //Application.Run(new FontScaleForm1());
+           Application.Run(new FontScaleForm2());
             //Application.Run(new Form_Button());
             //Application.Run(new Form_CheckedListBox());
             //Application.Run(new Form_Combobox());
@@ -55,6 +57,8 @@ namespace Demo
             //Application.Run(new Form_Others());
             //Application.Run(new Form_Chart1());
             //Application.Run(new Form1());
+
+            //Application.Run(new TestForm1());
         }
     }
 }

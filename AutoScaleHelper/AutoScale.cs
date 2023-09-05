@@ -99,6 +99,11 @@ namespace AutoScaleHelper
                 if (curCtrl is GroupBox || curCtrl is TabControl ||
                     curCtrl is Panel || curCtrl is ContainerControl)
                 {
+                    if (ContainerDSizes.ContainsKey(curCtrl.Name))
+                    {
+                        throw new Exception("存在name重复的容器类控件(如Panel,GroupBox,TabControl或ContainerControl)," +
+                            $"name={curCtrl.Name}，如果该容器类控件是动态生成的，请参考Demo--动态添加控件");
+                    }
                     ContainerDSizes.Add(curCtrl.Name, curCtrl.ClientSize);
                 }
 
