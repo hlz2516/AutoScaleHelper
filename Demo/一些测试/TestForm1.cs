@@ -13,17 +13,23 @@ namespace Demo.一些测试
         public TestForm1()
         {
             InitializeComponent();
+            for (int i = 0; i < 5; i++)
+            {
+                tableLayoutPanel1.RowCount++;
+                tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50));
+                UpdateTableHeight();
+            }
             autoScale = new AutoScale(this);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void UpdateTableHeight()
         {
-            var userCtrl = new UserControl1();
-            userCtrl.Content = "测试";
-            userCtrl.Icon = Properties.Resources.二哈;
-            userCtrl.Size = new Size(100, 100);
-            userCtrl.Location = new Point(100, 100);
-            panel1.Controls.Add(userCtrl);
+            int totalHeight = 0;
+            foreach (RowStyle rowStyle in tableLayoutPanel1.RowStyles)
+            {
+                totalHeight += (int)rowStyle.Height;
+            }
+            tableLayoutPanel1.Height = totalHeight;
         }
 
         private void TestForm1_SizeChanged(object sender, EventArgs e)

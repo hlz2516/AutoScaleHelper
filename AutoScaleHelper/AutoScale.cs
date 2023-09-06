@@ -76,7 +76,7 @@ namespace AutoScaleHelper
                     {
                         continue;
                     }
-                    if (ctrl.Parent is DataGridView || ctrl.Parent is UpDownBase)
+                    if (ctrl.Parent is DataGridView || ctrl.Parent is UpDownBase || ctrl.Parent is TableLayoutPanel)
                     {
                         continue;
                     }
@@ -152,7 +152,7 @@ namespace AutoScaleHelper
                     {
                         continue;
                     }
-                    if (ctrl.Parent is DataGridView || ctrl.Parent is UpDownBase)
+                    if (ctrl.Parent is DataGridView || ctrl.Parent is UpDownBase || ctrl.Parent is TableLayoutPanel)
                     {
                         continue;
                     }

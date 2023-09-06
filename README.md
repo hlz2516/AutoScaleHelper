@@ -115,6 +115,30 @@ A：AutoScale类在缩放控件大小时，如果遇到的是自定义控件内�
 你可以给自定义控件挂载一个AutoScale实例，使得其具有自适应布局的特性，
 详情可参考Demo._5_自定义控件的缩放.UserControlForm1和UserControlForm2。  
 
+Q：SetAnchorNone会把一个控件里的所有控件anchor设置为空，但我想保留其中的一些子控件的anchor  
+A：调用SetAnchorNoneExcept方法  
+
+Q：该类库报错：存在name重复的容器类控件(如Panel,GroupBox,TabControl或ContainerControl),name=XXX...，该如何解决？  
+A：以下情况有可能造成该报错：  
+1. 在调用SetContainer前动态添加了name相同的多个容器类控件。解决方法：动态添加时，设置每个容器的name不相同。
+2. 添加了某些自定义控件（但不继承自UserControl），该自定义控件内部具有多个相同name的容器类控件。
+解决方法：如果该自定义控件来自第三方类库，可以再寻找其他类库的替代控件；如果是自己写的控件，请保证内部的每个容器类控件的name不相同。
+
+Q：该类库报错：出现该错误有可能是在调用SetContainer后，缩放区域内部动态添加或删除了容器类的控件...，该如何解决？  
+A：以下情况有可能造成该报错：  
+1. 在调用SetContainer后，缩放区域内部动态添加或删除了容器类的控件（如panel,ContainerControl,GroupBox,TabControl）。解决方法是，
+在动态添加或删除控件后需要调用AutoScale的AddControl或RemoveControl方法。
+详情可参考Demo._4_动态添加控件.DynaAddCtrlForm1中的代码。  
+
+Q：我只想缩放指定控件内部的直接子控件布局，但不想影响子控件的子控件布局  
+A：调用UpdateControlsLayout时传入false参数  
+
+Q：ToolStrip内部控件没有缩放？  
+A：是的，因为ToolStrip内部控件缩放比较难处理，因此AutoScale类不处理它，类似的还有Form类。
+另外，AutoScale在处理一些控件时会缩放其自身大小，但不会缩放其内部的控件的大小和位置，如
+DataGridView，UpDownBase，TableLayoutPanel。
+
+有其他问题或者bug请提issue，并附上代码或图片。
 
 ## 其他
 
