@@ -34,11 +34,14 @@ namespace AutoScaleHelper
         /// </summary>
         public string parentName;
     }
-
+    /// <summary>
+    /// 缩放模式
+    /// </summary>
     public enum ScaleMode
     {
         /// <summary>
-        /// 缩放时，控件的缩放大小只与其容器大小成比例，即控件的宽度按照其所在容器宽度的占比进行缩放，同理对于高度
+        /// 缩放时，控件的缩放大小只与其容器大小成比例，即控件的宽度按照其所在容器宽度的占比进行缩放，同理对于高度。
+        /// 注意，该缩放模式对于TextScale无效。
         /// </summary>
         AdaptToContainer,
         /// <summary>
@@ -50,7 +53,9 @@ namespace AutoScaleHelper
         /// </summary>
         MaintainSelfRatioV
     }
-
+    /// <summary>
+    ///不缩放模式
+    /// </summary>
     public enum NoScaleMode
     {
         /// <summary>

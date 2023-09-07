@@ -190,7 +190,7 @@ namespace AutoScaleHelper
                     }
                     Size parentSize;
                     ContainerDSizes.TryGetValue(curCtrl.Parent.Name, out parentSize);
-                    if (parentSize == null)
+                    if (parentSize == default)
                     {
                         throw new Exception("出现该错误有可能是在调用SetContainer后，" +
                             "缩放区域内部动态添加或删除了容器类的控件（如panel,ContainerControl,GroupBox,TabControl），" +
@@ -338,17 +338,19 @@ namespace AutoScaleHelper
         {
             if (ctrl.Parent != null)
             {
-                var ctrlInfo = new CtrlInfo();
-                ctrlInfo.Anchors = ctrl.Anchor;
-                ctrlInfo.Rect = new Rectangle
+                var ctrlInfo = new CtrlInfo
                 {
-                    X = ctrl.Location.X,
-                    Y = ctrl.Location.Y,
-                    Width = ctrl.Width,
-                    Height = ctrl.Height
+                    Anchors = ctrl.Anchor,
+                    Rect = new Rectangle
+                    {
+                        X = ctrl.Location.X,
+                        Y = ctrl.Location.Y,
+                        Width = ctrl.Width,
+                        Height = ctrl.Height
+                    },
+                    AspectRatio = ctrl.Width * 1.0f / ctrl.Height,
+                    NoScale = noScaleMode
                 };
-                ctrlInfo.AspectRatio = ctrl.Width * 1.0f / ctrl.Height;
-                ctrlInfo.NoScale = noScaleMode;
 
                 if (!_ctrlInfos.ContainsKey(ctrl.Name))
                 {
@@ -378,8 +380,7 @@ namespace AutoScaleHelper
         {
             if (!groups.ContainsKey(target))
             {
-                List<Control> g = new List<Control>();
-                g.Add(ctrl);
+                List<Control> g = new List<Control>{ ctrl };
                 groups.Add(target, g);
             }
             else

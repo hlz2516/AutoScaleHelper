@@ -8,7 +8,7 @@
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>AutoScaleHelper</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Authors>Normal Hu</Authors>
     <Description>The helper of layout scaling for winform.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

@@ -129,6 +129,8 @@ A：以下情况有可能造成该报错：
 1. 在调用SetContainer后，缩放区域内部动态添加或删除了容器类的控件（如panel,ContainerControl,GroupBox,TabControl）。解决方法是，
 在动态添加或删除控件后需要调用AutoScale的AddControl或RemoveControl方法。
 详情可参考Demo._4_动态添加控件.DynaAddCtrlForm1中的代码。  
+2. 在调用SetContainer后，某个控件的Parent属性被代码执行修改，这种情况请
+设置这个控件的父容器为不缩放。
 
 Q：我只想缩放指定控件内部的直接子控件布局，但不想影响子控件的子控件布局  
 A：调用UpdateControlsLayout时传入false参数  
@@ -146,7 +148,10 @@ DataGridView，UpDownBase，TableLayoutPanel。
 
 ## 更新
 
-### 1.0.2即将更新
+### 1.0.3更新  
+不好意思非常抱歉，由于在1.0.2版本中存在一个低级错误，该错误可能导致一些严重问题，因此更新到1.0.3版本，请各位见谅！
+
+### 1.0.2更新
 
 - 增加解除字体依赖方法，以避免动态删除字体依赖相关的控件时导致报错的问题
 - 新增TextScale类。考虑到这种情况：界面已经做了缩放自适应（通过网格布局或流式布局），但是字体没有做自适应处理。

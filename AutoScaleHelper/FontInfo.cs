@@ -123,10 +123,18 @@ namespace AutoScaleHelper
             return FontSizeType.Common;
         }
     }
-
+    /// <summary>
+    /// 字号类型
+    /// </summary>
     public enum FontSizeType
     {
+        /// <summary>
+        /// 通用类型，如8，9，10
+        /// </summary>
         Common,
+        /// <summary>
+        /// 中文类型，如五号，小五
+        /// </summary>
         Chinese
     }
 }
