@@ -25,9 +25,9 @@ namespace Demo._4_动态添加控件
 
         private void DynaAddCtrlForm1_SizeChanged(object sender, EventArgs e)
         {
-            this.SuspendLayout();
+            //this.SuspendLayout();
             autoScale.UpdateControlsLayout();
-            this.ResumeLayout();
+            //this.ResumeLayout();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace Demo._4_动态添加控件
             this.Controls.Add(button5);
             autoScale.AddControl(button5);
             autoScale.UpdateControlsLayout();
-            this.ResumeLayout();
+           this.ResumeLayout();
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -40,7 +40,7 @@ namespace Demo
             //Application.Run(new Form_Button());
             //Application.Run(new Form_CheckedListBox());
             //Application.Run(new Form_Combobox());
-            // Application.Run(new Form_DataGridView());
+             //Application.Run(new Form_DataGridView());
             //Application.Run(new Form_Groupbox());
             //Application.Run(new Form_Label());
             //Application.Run(new Form_ListBox());
@@ -56,7 +56,6 @@ namespace Demo
             //Application.Run(new Form_TreeView());
             //Application.Run(new Form_Others());
             //Application.Run(new Form_Chart1());
-            //Application.Run(new Form1());
 
             //Application.Run(new TestForm1());
         }

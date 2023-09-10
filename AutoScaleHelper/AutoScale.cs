@@ -76,7 +76,7 @@ namespace AutoScaleHelper
                     {
                         continue;
                     }
-                    if (ctrl.Parent is DataGridView || ctrl.Parent is UpDownBase || ctrl.Parent is TableLayoutPanel)
+                    if (ctrl.Parent is DataGridView || ctrl.Parent is UpDownBase)
                     {
                         continue;
                     }
@@ -152,7 +152,7 @@ namespace AutoScaleHelper
                     {
                         continue;
                     }
-                    if (ctrl.Parent is DataGridView || ctrl.Parent is UpDownBase || ctrl.Parent is TableLayoutPanel)
+                    if (ctrl.Parent is DataGridView || ctrl.Parent is UpDownBase)
                     {
                         continue;
                     }
@@ -349,7 +349,10 @@ namespace AutoScaleHelper
                         Height = ctrl.Height
                     },
                     AspectRatio = ctrl.Width * 1.0f / ctrl.Height,
-                    NoScale = noScaleMode
+                    NoScale = noScaleMode,
+                    Font = ctrl.Font,
+                    parentName = ctrl.Parent.Name,
+                    FontSizeType = FontSizeType.Chinese
                 };
 
                 if (!_ctrlInfos.ContainsKey(ctrl.Name))

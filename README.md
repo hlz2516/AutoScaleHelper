@@ -138,7 +138,7 @@ A：调用UpdateControlsLayout时传入false参数
 Q：ToolStrip内部控件没有缩放？  
 A：是的，因为ToolStrip内部控件缩放比较难处理，因此AutoScale类不处理它，类似的还有Form类。
 另外，AutoScale在处理一些控件时会缩放其自身大小，但不会缩放其内部的控件的大小和位置，如
-DataGridView，UpDownBase，TableLayoutPanel。
+DataGridView，UpDownBase。
 
 有其他问题或者bug请提issue，并附上代码或图片。
 
@@ -147,6 +147,9 @@ DataGridView，UpDownBase，TableLayoutPanel。
 更多例子请clone仓库中的Demo项目学习和借鉴。如果您觉得该项目对您有帮助，请留下您的star谢谢~
 
 ## 更新
+
+### 1.0.5更新  
+不好意思非常抱歉，在1.0.3版本中又测试出一个严重错误（该错误导致AutoScale的AddControl方法报错），因此更新至1.0.5版本（之所以没有1.0.4是因为4是一个不吉利的数字），请各位见谅！
 
 ### 1.0.3更新  
 不好意思非常抱歉，由于在1.0.2版本中存在一个低级错误，该错误可能导致一些严重问题，因此更新到1.0.3版本，请各位见谅！
