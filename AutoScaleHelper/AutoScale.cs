@@ -308,7 +308,7 @@ namespace AutoScaleHelper
                         int fontHeight = (int)(ctrlInfo.Font.Height * 1.0f / ctrlInfo.Rect.Height * curCtrl.Height);
                         FontInfo fontInfo = FontInfos.GetFontInfo(ctrlInfo.Font.Name);
                         float fontSize = fontInfo.GetFloorFontSizeByHeight(fontHeight, ctrlInfo.FontSizeType);
-                        curCtrl.Font = new Font(ctrlInfo.Font.Name, fontSize,ctrlInfo.Font.Style);
+                        curCtrl.Font = new Font(curCtrl.Font.FontFamily, fontSize, curCtrl.Font.Style);
                     }
                 }
 
@@ -324,7 +324,7 @@ namespace AutoScaleHelper
                 foreach (var item in g.Value)
                 {
                     //item.Font = g.Key.Font.Clone() as Font;
-                    item.Font = new Font(g.Key.Font.FontFamily, g.Key.Font.Size, item.Font.Style);
+                    item.Font = new Font(item.Font.FontFamily, g.Key.Font.Size, item.Font.Style);
                 }
             }
 
