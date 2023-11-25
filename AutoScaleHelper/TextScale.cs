@@ -114,7 +114,7 @@ namespace AutoScaleHelper
                     int fontHeight = (int)(ctrlInfo.Font.Height * 1.0f / ctrlInfo.Rect.Height * ctrl.Height);
                     FontInfo fontInfo = FontInfos.GetFontInfo(ctrlInfo.Font.Name);
                     float fontSize = fontInfo.GetFloorFontSizeByHeight(fontHeight, ctrlInfo.FontSizeType);
-                    ctrl.Font = new Font(ctrlInfo.Font.Name, fontSize);
+                    ctrl.Font = new Font(ctrlInfo.Font.Name, fontSize,ctrl.Font.Style);
                 }
                 else if (scaleMode == ScaleMode.MaintainSelfRatioH)
                 {
@@ -122,7 +122,7 @@ namespace AutoScaleHelper
                     float rate = ctrl.Width * 1.0f / ctrlInfo.Rect.Width;
                     FontInfo fontInfo = FontInfos.GetFontInfo(ctrlInfo.Font.Name);
                     float fontSize = fontInfo.GetFloorFontSizeByHeight((int)(rate * ctrlInfo.Font.Height), ctrlInfo.FontSizeType);
-                    ctrl.Font = new Font(ctrlInfo.Font.Name, fontSize);
+                    ctrl.Font = new Font(ctrlInfo.Font.Name, fontSize,ctrl.Font.Style);
                 }
 
                 //针对设置了字体依赖的控件特殊处理
@@ -131,7 +131,8 @@ namespace AutoScaleHelper
                     var values = groups[ctrl];
                     foreach (var item in values)
                     {
-                        item.Font = ctrl.Font.Clone() as Font;
+                        //item.Font = ctrl.Font.Clone() as Font;
+                        item.Font = new Font(ctrl.Font.FontFamily, ctrl.Font.Size, item.Font.Style);
                     }
                 }
             }
