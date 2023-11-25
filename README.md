@@ -16,8 +16,8 @@
 - 可以设置某些控件的字体变化依赖于某个控件的字体
 
 ## 安装
-可在Nuget包管理器中搜索AutoScaleHelper进行下载安装。  
-Nuget: https://www.nuget.org/packages/AutoScaleHelper
+[Nuget](https://www.nuget.org/packages/AutoScaleHelper) （推荐在Nuget包管理器中搜索AutoScaleHelper进行下载安装）  
+[Github](https://github.com/hlz2516/AutoScaleHelper/releases/download/v1.0.6.1/AutoScaleHelper.1.0.6.nupkg)
 
 ## 基本使用
 
