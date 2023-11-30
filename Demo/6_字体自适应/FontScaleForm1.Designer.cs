@@ -42,7 +42,7 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("宋体", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Font = new System.Drawing.Font("宋体", 42F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.Location = new System.Drawing.Point(43, 38);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(228, 107);

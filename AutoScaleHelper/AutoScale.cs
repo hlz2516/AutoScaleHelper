@@ -304,11 +304,7 @@ namespace AutoScaleHelper
                         {
                             continue;
                         }
-                        //根据原字体行高与控件高度的比例计算缩放后的字体行高
-                        int fontHeight = (int)(ctrlInfo.Font.Height * 1.0f / ctrlInfo.Rect.Height * curCtrl.Height);
-                        FontInfo fontInfo = FontInfos.GetFontInfo(ctrlInfo.Font.Name);
-                        float fontSize = fontInfo.GetFloorFontSizeByHeight(fontHeight, ctrlInfo.FontSizeType);
-                        curCtrl.Font = new Font(curCtrl.Font.FontFamily, fontSize, curCtrl.Font.Style);
+                        SetControlFontSize(curCtrl,ctrlInfo);
                     }
                 }
 
@@ -330,6 +326,20 @@ namespace AutoScaleHelper
 
             OnScale?.Invoke(_ctrlInfos);
         }
+        /// <summary>
+        /// 控件的字体缩放算法，可被重写。缩放容器内的所有控件均采用该算法进行字体缩放。
+        /// </summary>
+        /// <param name="curCtrl">缩放容器内的任一控件</param>
+        /// <param name="ctrlInfo">该控件在设计器时期记录的一些信息</param>
+        protected virtual void SetControlFontSize(Control curCtrl,CtrlInfo? ctrlInfo)
+        {
+            //根据原字体行高与控件高度的比例计算缩放后的字体行高
+            int fontHeight = (int)(ctrlInfo.Font.Height * 1.0f / ctrlInfo.Rect.Height * curCtrl.Height);
+            FontInfo fontInfo = FontInfos.GetFontInfo(ctrlInfo.Font.Name);
+            float fontSize = fontInfo.GetFloorFontSizeByHeight(fontHeight, ctrlInfo.FontSizeType);
+            curCtrl.Font = new Font(curCtrl.Font.FontFamily, fontSize, curCtrl.Font.Style);
+        }
+
         /// <summary>
         /// 在缩放区域内动态添加一个控件，使得该控件在缩放区域大小改变时，也能具有缩放自适应的功能。
         /// </summary>

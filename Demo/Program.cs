@@ -36,11 +36,13 @@ namespace Demo
             //Application.Run(new UserControlForm1());
             //Application.Run(new UserControlForm2());
             //Application.Run(new FontScaleForm1());
-           //Application.Run(new FontScaleForm2());
+            //Application.Run(new FontScaleForm2());
+            //Application.Run(new FontScaleForm3());
+            //Application.Run(new FontScaleForm4());
             //Application.Run(new Form_Button());
             //Application.Run(new Form_CheckedListBox());
             //Application.Run(new Form_Combobox());
-             //Application.Run(new Form_DataGridView());
+            //Application.Run(new Form_DataGridView());
             //Application.Run(new Form_Groupbox());
             //Application.Run(new Form_Label());
             //Application.Run(new Form_ListBox());

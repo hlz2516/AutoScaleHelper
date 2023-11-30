@@ -99,32 +99,14 @@ namespace AutoScaleHelper
             }
         }
         /// <summary>
-        /// 缩放（在该容器内部的）单个控件的文本字体大小
+        /// 缩放（在该容器内部的）指定控件的文本字体大小
         /// </summary>
         /// <param name="ctrl"></param>
-        /// <param name="scaleMode"></param>
-        public void ScaleSingle(Control ctrl,ScaleMode scaleMode = ScaleMode.MaintainSelfRatioV)
+        public void ScaleSingle(Control ctrl)
         {
             if (_ctrlInfos.ContainsKey(ctrl.Name))
             {
-                var ctrlInfo = _ctrlInfos[ctrl.Name];
-                if (scaleMode == ScaleMode.MaintainSelfRatioV)
-                {
-                    //根据原字体行高与控件高度的比例计算缩放后的字体行高
-                    int fontHeight = (int)(ctrlInfo.Font.Height * 1.0f / ctrlInfo.Rect.Height * ctrl.Height);
-                    FontInfo fontInfo = FontInfos.GetFontInfo(ctrlInfo.Font.Name);
-                    float fontSize = fontInfo.GetFloorFontSizeByHeight(fontHeight, ctrlInfo.FontSizeType);
-                    ctrl.Font = new Font(ctrl.Font.Name, fontSize,ctrl.Font.Style);
-                }
-                else if (scaleMode == ScaleMode.MaintainSelfRatioH)
-                {
-                    //将设计器中的控件宽度缩放比例作为字体的行高缩放比例
-                    float rate = ctrl.Width * 1.0f / ctrlInfo.Rect.Width;
-                    FontInfo fontInfo = FontInfos.GetFontInfo(ctrlInfo.Font.Name);
-                    float fontSize = fontInfo.GetFloorFontSizeByHeight((int)(rate * ctrlInfo.Font.Height), ctrlInfo.FontSizeType);
-                    ctrl.Font = new Font(ctrl.Font.Name, fontSize,ctrl.Font.Style);
-                }
-
+                SetControlFontSize(ctrl, _ctrlInfos[ctrl.Name]);
                 //针对设置了字体依赖的控件特殊处理
                 if (groups.ContainsKey(ctrl))
                 {
@@ -141,8 +123,7 @@ namespace AutoScaleHelper
         /// 缩放容器内的所有子控件的字体大小
         /// </summary>
         /// <param name="area"></param>
-        /// <param name="scaleMode"></param>
-        public void ScaleArea(Control area, ScaleMode scaleMode = ScaleMode.MaintainSelfRatioV)
+        public void ScaleArea(Control area)
         {
             Queue<Control> queue = new Queue<Control>();
             queue.Enqueue(_container);
@@ -171,15 +152,29 @@ namespace AutoScaleHelper
                 //如果当前控件是传入的容器，则直接缩放字体
                 if (curCtrl == _container)
                 {
-                    ScaleSingle(curCtrl,scaleMode);
+                    ScaleSingle(curCtrl);
                     continue;
                 }
 
                 if (_ctrlInfos.ContainsKey(curCtrl.Name))
                 {
-                    ScaleSingle(curCtrl, scaleMode);
+                    ScaleSingle(curCtrl);
                 }
             }
+        }
+
+        /// <summary>
+        /// 控件的字体缩放算法，可被重写。缩放容器内的所有控件均采用该算法进行字体缩放。
+        /// </summary>
+        /// <param name="curCtrl">缩放容器内的任一控件</param>
+        /// <param name="ctrlInfo">该控件在设计器时期记录的一些信息</param>
+        protected virtual void SetControlFontSize(Control curCtrl, CtrlInfo? ctrlInfo)
+        {
+            //根据原字体行高与控件高度的比例计算缩放后的字体行高
+            int fontHeight = (int)(ctrlInfo.Font.Height * 1.0f / ctrlInfo.Rect.Height * curCtrl.Height);
+            FontInfo fontInfo = FontInfos.GetFontInfo(ctrlInfo.Font.Name);
+            float fontSize = fontInfo.GetFloorFontSizeByHeight(fontHeight, ctrlInfo.FontSizeType);
+            curCtrl.Font = new Font(curCtrl.Font.FontFamily, fontSize, curCtrl.Font.Style);
         }
         /// <summary>
         /// 指定多个控件的字体依赖于另一个目标控件，目标控件必须在容器内才有效。

@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace AutoScaleHelper
 {
+    /// <summary>
+    /// 设计器时期记录到的控件信息
+    /// </summary>
     public class CtrlInfo
     {
         /// <summary>
@@ -10,7 +13,7 @@ namespace AutoScaleHelper
         /// </summary>
         public AnchorStyles Anchors;
         /// <summary>
-        /// (x,y,width,height)
+        /// (x:控件位置的x坐标,y:控件位置的y坐标,,width:控件宽度,height:控件高度)
         /// </summary>
         public Rectangle Rect;
         /// <summary>
