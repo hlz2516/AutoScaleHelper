@@ -25,7 +25,7 @@ namespace Demo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new ScaleModeForm1());
+            //Application.Run(new ScaleModeForm1());
             //Application.Run(new ScaleModeForm2());
             //Application.Run(new ScaleModeForm3());
             //Application.Run(new ScaleModeForm4());
@@ -33,7 +33,7 @@ namespace Demo
             //Application.Run(new NoScaleForm1());
             //Application.Run(new DynaAddCtrlForm1());
             //Application.Run(new DynaAddCtrlForm2());
-            //Application.Run(new UserControlForm1());
+            Application.Run(new UserControlForm1());
             //Application.Run(new UserControlForm2());
             //Application.Run(new FontScaleForm1());
             //Application.Run(new FontScaleForm2());

@@ -189,8 +189,8 @@ namespace AutoScaleHelper
                         }
                     }
                     Size parentSize;
-                    ContainerDSizes.TryGetValue(curCtrl.Parent.Name, out parentSize);
-                    if (parentSize == default)
+                    bool hasGot = ContainerDSizes.TryGetValue(curCtrl.Parent.Name, out parentSize);
+                    if (!hasGot)
                     {
                         throw new Exception("出现该错误有可能是在调用SetContainer后，" +
                             "缩放区域内部动态添加或删除了容器类的控件（如panel,ContainerControl,GroupBox,TabControl），" +

@@ -13,15 +13,15 @@ namespace Demo._5_自定义控件的缩放
 {
     public partial class UserControlForm1 : Form
     {
-        AutoScale autoScale = new AutoScale();
-        AutoScale autoScaleForUC = new AutoScale();
+        AutoScale autoScale;
+        AutoScale autoScaleForUC;
 
         public UserControlForm1()
         {
             InitializeComponent();
-            autoScale.SetContainer(this);
             userControl11.SetAnchorNone();
-            autoScaleForUC.SetContainer(userControl11);
+            autoScale = new AutoScale(this);
+            autoScaleForUC = new AutoScale(userControl11);
         }
 
         private void UserControlForm1_SizeChanged(object sender, EventArgs e)
